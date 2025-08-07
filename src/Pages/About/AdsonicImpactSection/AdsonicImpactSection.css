@@ -90,8 +90,8 @@
   height: auto;
 }
 
-.impact-bg-overlay{
-display: flex;
+.impact-bg-overlay {
+  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5rem 1rem;
@@ -103,13 +103,13 @@ display: flex;
   background-repeat: no-repeat;
   position: relative;
   z-index: 1;
-    
+
   max-width: 1200px;
 }
 
 /* Section specific */
 .light-section {
-  background-color: #fff;  
+  background-color: #fff;
   max-width: 1200px;
 }
 
@@ -118,10 +118,10 @@ display: flex;
   color: var(--text-light);
   background-blend-mode: multiply;
   width: 100%;
-  border-top-left-radius: 60px;
-  border-top-right-radius: 60px;
-    border-bottom-left-radius: 60px;
-  border-bottom-right-radius: 60px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
 }
 
 .dark-section h2,
