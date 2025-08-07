@@ -10,7 +10,12 @@
 }
 /* Navbar Scrolled State */
 .navbar.scrolled {
-background-color: white;
+background: linear-gradient(
+  135deg,
+  rgb(252, 252, 252),
+var(--accent-orange)
+);
+/* Light background when scrolled */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
