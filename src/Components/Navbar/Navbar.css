@@ -1,0 +1,360 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: transparent; /* Default transparent background */
+  z-index: 100;
+}
+/* Navbar Scrolled State */
+.navbar.scrolled {
+background-color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Navbar Inner Content Container */
+.navbar-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 1rem; /* py-4 px-4 */
+  display: flex;
+  justify-content: space-between; /* Pushes logo left, right section right */
+  align-items: center;
+}
+
+/* Adjust padding for medium screens and up */
+@media (min-width: 768px) {
+  .navbar-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Logo Section */
+.navbar-logo {
+  flex-shrink: 0;
+}
+
+.navbar-logo img {
+  height: 70px;
+  width: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Right Section of Navbar (Desktop Links + Hamburger) */
+.navbar-right-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Space between desktop links and hamburger */
+}
+
+/* Desktop Navigation Links Container */
+.navbar-links-desktop {
+  display: none; /* Hidden by default on small screens */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Show desktop links on medium screens and up */
+@media (min-width: 768px) {
+  .navbar-links-desktop {
+    display: flex;
+    gap: 2rem;
+    color: var(--primary-dark-blue);
+    font-weight: 500;
+  }
+}
+
+.navbar-links-desktop li {
+  position: relative;
+}
+
+.navbar-links-desktop a,
+.navbar-links-desktop button {
+font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--primary-dark-blue);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.navbar-links-desktop a:hover,
+.navbar-links-desktop button:hover {
+  color: var(--accent-orange);
+}
+
+/* Services Dropdown Arrow Icon */
+.dropdown-arrow {
+  margin-left: 0.25rem;
+  height: 16px;
+  width: 16px;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+}
+
+.dropdown-arrow.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Animated Hamburger Icon */
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 60; /* Ensure it's above other content */
+  position: relative;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-dark-blue); /* Default for light background */
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* State when the menu is open (transforms into an 'X') */
+.hamburger-icon.open .hamburger-line:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.hamburger-icon.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.hamburger-icon.open .hamburger-line:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+
+/* Mega Menu Dropdown (Desktop - for Services) */
+.mega-menu {
+  position: absolute;
+  top: 3rem;
+  left: -500px; /* Align with the 'Services' link */
+  width: 1000px; /* Increased width for better layout */
+  background-color: var(--background-light);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+  z-index: 40;
+  padding: 1.5rem 1.5rem; /* Reduced padding for compactness */
+  display: grid; /* Use grid for multi-column layout */
+  grid-template-columns: repeat(3, minmax(160px, 1fr)); /* Three columns on large screens, adjusted minmax */
+  gap: 1rem; /* Reduced gap for compactness */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.mega-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mega-menu-section h3 {
+  color: var(--primary-dark-blue);
+  font-weight: 700;
+  margin-bottom: 0.75rem; /* Reduced margin-bottom */
+  font-size: 1.15rem; /* Slightly smaller font for compactness */
+  border-bottom: 2px solid var(--accent-orange);
+  padding-bottom: 0.4rem; /* Reduced padding-bottom */
+  display: inline-block;
+}
+
+.mega-menu-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mega-menu-section ul li {
+  margin-bottom: 0.5rem; /* Reduced margin-bottom */
+}
+
+.mega-menu-section ul li a {
+  color: var(--text-dark);
+  font-size: 0.95rem; /* Slightly smaller font for compactness */
+  transition: color 0.2s ease, transform 0.2s ease;
+  font-weight: 400 !important;
+  display: block;
+  padding: 0.2rem 0; /* Reduced padding */
+}
+
+.mega-menu-section ul li a:hover {
+  color: var(--accent-orange);
+  text-decoration: none;
+  transform: translateX(5px);
+}
+
+/* Sidebar Container */
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--background-light);
+  color: var(--primary-dark-blue);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-menu.open {
+  transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+  .sidebar-menu {
+    width: 320px;
+  }
+}
+
+/* Close Button (Floating Top Right) */
+.sidebar-header {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  z-index: 101;
+}
+
+.sidebar-close-button {
+  background-color: var(--accent-orange);
+  border: none;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-close-icon-svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--background-light);
+}
+
+/* Menu List */
+.sidebar-menu-list {
+  list-style: none;
+  margin: 4rem 0 0;
+  padding: 0;
+  flex-grow: 1;
+}
+
+.sidebar-menu-list li {
+  width: 100%;
+}
+
+.sidebar-menu-list li a,
+.sidebar-menu-list li button {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  color: var(--primary-dark-blue);
+  background: none;
+  border: none;
+  text-align: left;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.sidebar-menu-list li a:hover,
+.sidebar-menu-list li button:hover {
+  color: var(--accent-orange);
+}
+
+/* Highlight Services in Orange */
+.sidebar-menu-list li a.active,
+.sidebar-menu-list li button.active {
+  color: var(--accent-orange);
+}
+
+/* Expandable Services */
+.sidebar-expanded-services {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.sidebar-expanded-services.open {
+  max-height: 250px;
+}
+
+.sidebar-expanded-services li a {
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.6rem 2.5rem;
+  color: var(--primary-dark-blue);
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.sidebar-expanded-services li a:hover {
+  color: var(--accent-orange);
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Social Icons */
+.sidebar-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-social-icons a {
+  color: var(--primary-dark-blue);
+  transition: color 0.2s ease;
+}
+
+.sidebar-social-icons a:hover {
+  color: var(--accent-orange);
+}
+
+.sidebar-social-icons svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Disable Scroll on Body when Sidebar is Open */
+html.sidebar-active,
+body.sidebar-active {
+  overflow: hidden;
+}

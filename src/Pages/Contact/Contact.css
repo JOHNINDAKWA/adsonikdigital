@@ -1,0 +1,126 @@
+.contact-wrapper {
+  background: var(--background-light);
+  padding: 80px 0;
+  position: relative;
+}
+
+.contact-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-dark-blue);
+  margin-bottom: 40px;
+}
+
+.contact-heading .highlight {
+  color: var(--accent-orange);
+}
+
+.contact-box {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+  position: relative;
+  z-index: 3; /* sits above everything visually */
+}
+
+.contact-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.contact-form .left,
+.contact-form .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: var(--primary-dark-blue);
+  font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: none;
+  border-bottom: 2px solid var(--border-color);
+  background-color: transparent;
+  padding: 10px 5px;
+  margin-top: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent-orange);
+}
+
+.optional {
+  color: #ff5e5e;
+  font-weight: normal;
+}
+
+.captcha-placeholder {
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  background-color: #f9f9f9;
+}
+
+.captcha-placeholder .checkmark {
+  color: var(--green-check);
+  font-size: 1.2rem;
+}
+
+.privacy-text {
+  font-size: 0.85rem;
+  color: var(--text-dark-light);
+  margin-top: 10px;
+}
+
+.privacy-text a {
+  color: var(--accent-orange);
+  text-decoration: underline;
+}
+
+.submit-btn {
+  margin-top: 15px;
+  background-color: var(--primary-dark-blue);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #2e3a6e;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-form {
+    flex-direction: column;
+  }
+
+  .contact-heading {
+    font-size: 2rem;
+  }
+}

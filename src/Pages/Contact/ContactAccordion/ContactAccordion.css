@@ -1,0 +1,131 @@
+.accordion-section {
+  background-color: var(--primary-dark-blue);
+  padding: 200px 0 100px;
+  margin-top: -250px; /* pull upwards */
+  position: relative;
+  z-index: 1;
+
+}
+
+.accordion-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.accordion-title .highlight {
+  color: var(--accent-orange);
+}
+
+.accordion-list {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px dotted rgba(255, 255, 255, 0.2);
+}
+
+.accordion-item {
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+background-image: linear-gradient(
+    135deg,
+    #160f52,
+    #2f62a5,
+    #3c78c9
+  );
+  color: white;
+  padding: 20px 30px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+
+.accordion-body {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 40px;
+  color: white;
+  animation: fadeIn 0.5s ease;
+}
+
+.accordion-body .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.accordion-body .content-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.accordion-body h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.accordion-body p,
+.accordion-body a {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.accordion-body a:hover {
+  text-decoration: underline;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .accordion-body {
+    padding: 20px;
+  }
+
+  .accordion-header {
+    padding: 15px 20px;
+  }
+}

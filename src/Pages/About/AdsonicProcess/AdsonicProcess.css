@@ -1,0 +1,215 @@
+/* AdsonicProcess.css */
+.strategy-section {
+  background-color: #fff;
+  padding: 6rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.strategy-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 2rem;
+}
+
+/* TACTICS */
+.tactics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.tactic-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.tactic-card:nth-of-type(3),
+.tactic-card:nth-of-type(4) {
+  margin-left: 2rem;
+}
+
+.custom-check-icon {
+  font-size: 2rem;
+  color: var(--accent-orange);
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+.check-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 170, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tactic-card p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  width: 80%;
+}
+
+/* METHODOLOGY */
+.method-heading {
+  margin-bottom: 5rem;
+}
+
+.methodology-wrapper {
+  position: relative;
+  padding-top: 2rem;
+}
+
+.method-line {
+  height: 4px;
+  background: var(--accent-orange);
+  opacity: 0.7;
+  position: absolute;
+  top: 42.5px;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.method-steps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.method-step {
+  flex: 1;
+  min-width: 180px;
+  max-width: 200px;
+  text-align: center;
+  position: relative;
+}
+
+.method-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-orange), #1d1757); /* orange to dark blue */
+  box-shadow: 0 0 12px rgba(242, 169, 0, 0.5); /* Optional glow with orange */
+  margin: 0 auto 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+
+.method-step h4 {
+  font-size: 1.4rem;
+  color: #111;
+  font-weight: 600;
+}
+
+.method-step p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+}
+
+/* --- MEDIA QUERIES FOR SMALL SCREENS --- */
+
+@media (max-width: 767px) {
+  .strategy-section {
+    padding: 3rem 1rem;
+  }
+
+  .section-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* TACTICS */
+  .tactics-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    margin-bottom: 3rem;
+  }
+
+  .tactic-card {
+    padding: 1rem;
+    align-items: center; /* Center icon and text vertically */
+  }
+
+  .tactic-card p {
+    font-size: 0.95rem; /* Slightly smaller font for mobile */
+  }
+
+  .tactic-card:nth-of-type(3),
+  .tactic-card:nth-of-type(4) {
+    margin-left: 0; /* Remove specific desktop margin */
+  }
+  
+  /* METHODOLOGY */
+  .method-heading {
+    margin-bottom: 2rem;
+  }
+
+  .methodology-wrapper {
+    padding-top: 1rem;
+    padding-left: 1rem; /* Add padding for the vertical line */
+  }
+
+  /* Change the horizontal line to a vertical one */
+  .method-line {
+    width: 2px; /* Make it vertical */
+    height: calc(100% - 2rem); /* Span the full height of the steps, minus some padding */
+    top: 0;
+    left: 1.5rem; /* Position it to the left of the steps */
+    right: auto;
+  }
+
+  /* Stack steps vertically */
+  .method-steps {
+    flex-direction: column;
+    gap: 2rem; /* Increase gap between steps */
+  }
+
+  .method-step {
+    flex: none; /* Reset flex-grow */
+    min-width: unset;
+    max-width: 100%;
+    text-align: left; /* Align text to the left */
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  /* Adjust the dot to align with the vertical line */
+  .method-dot {
+    margin: 0;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    box-shadow: 0 0 8px var(--accent-orange);
+
+  }
+
+  .method-step h4 {
+    font-size: 1.2rem;
+  }
+
+  .method-step p {
+    font-size: 0.95rem;
+  }
+}
+

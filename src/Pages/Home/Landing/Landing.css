@@ -1,0 +1,567 @@
+.landing-page-section {
+  background-color: var(--background-light); /* White background */
+  padding: 2rem 1rem; /* Adjust padding as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.landing-page-content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; /* Stack vertically on small screens */
+  align-items: center;
+  gap: 3rem; /* Space between text and image sections */
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  /* On large screens, arrange side-by-side */
+  .landing-page-content-container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 0; /* Add some vertical padding */
+  }
+}
+
+/* Left Section: Text Content */
+.landing-page-text-content {
+  text-align: left;
+  max-width: 600px;
+  flex: 1; /* Allow it to take up space */
+}
+
+@media (min-width: 1024px) {
+  .landing-page-text-content {
+    text-align: left;
+    padding-right: 2rem; /* Space from image */
+  }
+}
+
+.landing-page-heading {
+  font-size: 2.5rem; /* Equivalent to text-5xl */
+  font-weight: 600; /* Equivalent to font-extrabold */
+  color: var(--primary-dark-blue);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .landing-page-heading {
+    font-size: 3.5rem; /* Larger on medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .landing-page-heading {
+    font-size: 3.5rem; /* Even larger on large screens */
+  }
+}
+
+.landing-page-description {
+  font-size: 1.15rem; /* Equivalent to text-lg */
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 2.5rem; /* Space before the new button group */
+}
+
+/* New Button Group Section */
+.landing-page-buttons-group {
+  display: flex;
+  flex-direction: column; /* Stack vertically on small screens */
+  gap: 1.5rem; /* Space between the two button items */
+  width: 100%;
+  max-width: 500px; /* Constrain width of the group */
+  margin: 0 auto; /* Center the group */
+}
+
+@media (min-width: 768px) {
+  .landing-page-buttons-group {
+    flex-direction: row; /* Side-by-side on medium screens */
+    justify-content: center;
+    max-width: none; /* Remove max-width for row layout */
+  }
+}
+
+@media (min-width: 1024px) {
+  .landing-page-buttons-group {
+    justify-content: flex-start; /* Align left on large screens */
+  }
+}
+
+.button-group-item {
+  text-align: left; 
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  justify-content: center; 
+}
+
+/* General Button Styles (re-used from previous) */
+.button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+  width: auto; /* Allow buttons to size based on content */
+}
+
+.button svg {
+  margin-left: 0.5rem;
+  width: 18px;
+  height: 18px;
+}
+
+.primary-button {
+  background-color: var(--accent-orange);
+  color: var(--text-light); /* White text */
+  border: 2px solid var(--accent-orange);
+}
+
+.primary-button:hover {
+  background-color: var(--primary-dark-blue);
+  border-color: var(--primary-dark-blue);
+  color: var(--text-light);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: var(--primary-dark-blue);
+  border: 2px solid var(--primary-dark-blue);
+}
+
+.secondary-button:hover {
+  background-color: var(--primary-dark-blue);
+  color: var(--text-light);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Section: Image and Decorative Elements */
+.landing-page-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 650px; /* Adjusted max-width to fit the complex image */
+  height: 480px; /* Adjusted height to make it a little longer */
+  border-radius: 12px; /* For the overall container shape */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .landing-page-image-wrapper {
+    flex: 1;
+    height: 580px; /* Taller on large screens to match screenshot and new height */
+  }
+}
+
+.hero-person-image {
+  position: absolute; /* Position relative to wrapper */
+  bottom: 0; /* Align to the bottom */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  max-width: 100%; /* Ensure it fits within its container */
+  height: auto; /* Maintain aspect ratio */
+  z-index: 2; /* Ensure it's above background elements */
+  width: 80%; /* Adjusted to match screenshot scale */
+  max-height: 95%; /* Adjusted to make it a little longer in height */
+  object-fit: contain; /* Ensure the entire image is visible without cropping */
+}
+
+/* Circular Dotted SVG */
+.dotted-circle-svg {
+  position: absolute;
+  top: -3%;
+  left: 2%;
+  width: 114px;
+  height: 114px;
+  z-index: 10;
+  transform: rotate(-15deg); /* Initial rotation */
+  animation: rotateCircle 20s linear infinite; /* Rotation animation */
+}
+
+.dotted-circle-svg circle {
+  stroke: #333333;
+  fill: none;
+}
+
+.dotted-circle-svg circle[fill="#333333"] {
+  fill: #333333;
+  stroke: none;
+}
+
+/* Rotation Keyframes */
+@keyframes rotateCircle {
+  0% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(345deg); /* -15 + 360 for seamless spin */
+  }
+}
+
+/* Yellow "madoadoa" decorative image */
+.global-hero-decor {
+  position: absolute;
+  top: 15%; /* Adjust as needed */
+  right: 10%; /* Adjust as needed */
+  width: 52%; /* Adjust size as needed */
+  height: auto;
+  z-index: 10; /* Behind the person image */
+  opacity: 1; /* Slightly transparent */
+}
+
+/* Floating Bubbles */
+.floating-bubble {
+  position: absolute;
+  background-color: white; /* White background */
+  color: var(--text-dark);
+  padding: 0.8rem 1.8rem;
+  border-radius: 25px; /* Pill shape */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap; /* Prevent text wrapping */
+  transition: transform 0.3s ease;
+  border: 1px solid var(--border-color); /* Added border */
+  z-index: 30; /* Ensure it's above the person image */
+}
+
+.floating-bubble:hover {
+  transform: translateY(-5px);
+}
+
+.floating-bubble .bubble-icon {
+  font-size: 1.2rem;
+  color: var(--accent-orange); /* Default icon color */
+}
+
+/* Specific positioning for each bubble based on screenshot and new content */
+.bubble-proven-results {
+  top: 2%; /* Adjusted position */
+  left: 10%; /* Adjusted position */
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.bubble-innovative-solutions {
+  top: 5%; /* Adjusted position */
+  right: 5%; /* Adjusted position */
+}
+
+.bubble-award-winning {
+  bottom: 25%; /* Adjusted position */
+  left: 0%; /* Adjusted position */
+}
+
+/* Bottom Section: Search Bar Inspired */
+.landing-page-bottom-section {
+  background-color: var(--background-light-gray); /* Light gray background */
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 900px; /* Constrain width */
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.bottom-section-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark-blue);
+  margin-bottom: 1rem;
+}
+
+.bottom-section-description {
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+}
+
+.bottom-section-form {
+  display: flex;
+  flex-direction: column; /* Stack on small screens */
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .bottom-section-form {
+    flex-direction: row; /* Arrange side-by-side on larger screens */
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping if space is tight */
+  }
+
+
+}
+
+
+@media (max-width: 768px) {
+  .bubble-innovative-solutions {
+  top: 20%; /* Adjusted position */
+  right: -2%; 
+}
+
+}
+
+/* React Select specific styling adjustments */
+.bottom-section-form > div {
+  /* Target the react-select containers */
+  width: 100%; /* Full width on small screens */
+  max-width: 220px; /* Max width for dropdowns */
+}
+
+@media (min-width: 768px) {
+  .bottom-section-form > div {
+    width: auto; /* Auto width for flex item */
+    flex-grow: 1; /* Allow to grow */
+  }
+}
+
+/* Base styles for react-select components */
+.react-select__control {
+  min-height: 48px !important; /* Important to override react-select's default */
+  border-radius: 8px !important;
+  border-color: var(--border-color) !important;
+  box-shadow: none !important;
+  background-color: var(--background-light) !important;
+  color: var(--text-dark) !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease;
+}
+
+.react-select__control--is-focused {
+  border-color: var(--accent-orange) !important;
+  box-shadow: 0 0 0 2px rgba(var(--accent-orange-rgb), 0.2) !important;
+}
+
+.react-select__control:hover {
+  border-color: var(--accent-orange) !important;
+}
+
+.react-select__value-container {
+  padding: 0 1rem; /* Adjust padding inside the control */
+}
+
+.react-select__single-value {
+  color: var(--text-dark) !important;
+}
+
+.react-select__placeholder {
+  color: var(--text-dark-light) !important;
+}
+
+.react-select__indicator-separator {
+  background-color: var(--border-color) !important;
+}
+
+.react-select__dropdown-indicator {
+  color: var(--text-dark) !important;
+}
+
+.react-select__dropdown-indicator:hover {
+  color: var(--accent-orange) !important;
+}
+
+.react-select__menu {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden; /* Ensures options stay within border-radius */
+  z-index: 1000; /* Ensure dropdown is above other elements */
+}
+
+.react-select__option {
+  background-color: var(--background-light) !important;
+  color: var(--text-dark) !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.react-select__option--is-focused {
+  background-color: rgba(var(--primary-dark-blue-rgb), 0.1) !important;
+  color: var(--primary-dark-blue) !important;
+}
+
+.react-select__option--is-selected {
+  background-color: var(--primary-dark-blue) !important;
+  color: var(--text-light) !important;
+}
+
+.find-agency-button {
+  background-color: var(--primary-dark-blue);
+  color: var(--text-light);
+  border: 2px solid var(--primary-dark-blue);
+  width: 100%; /* Full width on small screens */
+  max-width: 220px; /* Match dropdown width */
+}
+
+@media (min-width: 768px) {
+  .find-agency-button {
+    width: auto; /* Auto width for flex item */
+    flex-grow: 1; /* Allow to grow */
+  }
+}
+
+.find-agency-button:hover {
+  background-color: var(--accent-orange);
+  border-color: var(--accent-orange);
+}
+
+/* Video Player Component */
+.video-player-container {
+  /* Default styling for small screens */
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto; 
+  z-index: 50; 
+}
+
+.video-player-container-lg {
+  position: absolute;
+  bottom: 0%; 
+  right: 0%; 
+  width: 140px;
+  height: 140px;
+  display: none; /* Hidden on small screens */
+  z-index: 50;
+}
+
+@media (min-width: 1024px) {
+  .video-player-container {
+    display: none; /* Hide the small screen version */
+  }
+
+  .video-player-container-lg {
+    display: block; /* Show the large screen version */
+  }
+}
+
+.video-player-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.video-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--accent-orange),
+    var(--primary-dark-blue)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+/* Strong visible glow */
+.video-play-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    rgba(var(--accent-orange-rgb), 0.5),
+    rgba(var(--accent-orange-rgb), 0)
+  );
+  filter: blur(20px);
+  z-index: -1;
+  animation: glowPulse 2.2s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+/* Play icon */
+.video-play-button .play-icon {
+  color: var(--text-light);
+  font-size: 1.5rem;
+  margin-left: 4px;
+}
+
+/* Stronger Glow Animation */
+@keyframes glowPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+}
+
+
+/* Circular Text Animation */
+.video-text-circle-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 140%;
+}
+
+.video-text-circle {
+  width: 100%;
+  height: 100%;
+  animation: rotate-words 30s linear infinite;
+}
+
+.video-circle-text {
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  fill: var(--accent-orange);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes rotate-words {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

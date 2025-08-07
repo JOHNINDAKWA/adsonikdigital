@@ -1,0 +1,142 @@
+.adsonic-impact-wrapper {
+  width: 100%;
+}
+
+/* Shared layout styles */
+.impact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 1rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  gap: 3rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+}
+
+.impact-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.impact-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.impact-content h2 span {
+  color: var(--accent-orange);
+}
+
+.impact-content p {
+  font-size: 1.1rem;
+  color: var(--text-dark-light);
+  margin-bottom: 2rem;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.impact-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-impact {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-impact.primary {
+  background-color: var(--accent-orange);
+  color: #fff;
+}
+
+.btn-impact.primary:hover {
+  background-color: #d48a00;
+}
+
+.btn-impact.outline {
+  border: 2px solid var(--accent-orange);
+  background: transparent;
+  color: var(--accent-orange);
+}
+
+.btn-impact.outline:hover {
+  background-color: var(--accent-orange);
+  color: #fff;
+}
+
+.impact-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.impact-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.impact-bg-overlay{
+display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 1rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  gap: 3rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+    
+  max-width: 1200px;
+}
+
+/* Section specific */
+.light-section {
+  background-color: #fff;  
+  max-width: 1200px;
+}
+
+.dark-section {
+  background-color: var(--primary-dark-blue);
+  color: var(--text-light);
+  background-blend-mode: multiply;
+  width: 100%;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+    border-bottom-left-radius: 60px;
+  border-bottom-right-radius: 60px;
+}
+
+.dark-section h2,
+.dark-section p {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .impact-section {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .impact-buttons {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,259 @@
+.adsonic-hero-section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.adsonic-hero-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.adsonic-hero-content {
+  max-width: 800px;
+  z-index: 2;
+  margin-bottom: 4rem;
+  padding: 3rem 1.5rem;
+}
+
+.hero-subheading {
+  font-size: 1rem;
+  color: var(--accent-orange);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-heading {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.hero-heading span {
+  color: var(--accent-orange);
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin-bottom: 2rem;
+}
+
+.hero-cta-button {
+  background-color: var(--accent-orange);
+  color: var(--text-light);
+  padding: 0.75rem 2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.hero-cta-button:hover {
+  background-color: var(--primary-dark-blue);
+  transform: scale(1.05);
+}
+
+/* AI Specialization Box */
+.ai-specialization-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  padding: 4rem 5rem;
+  border-radius: 60px;
+  max-width: 900px;
+  width: 100%;
+  margin-bottom: 10rem;
+  gap: 1rem;
+}
+
+.ai-special-icon {
+  font-size: 1.5rem;
+  color: var(--accent-orange);
+  flex-shrink: 0;
+}
+
+.ai-specialization-box p {
+  flex: 1;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.ai-specialization-box span {
+  color: var(--accent-orange);
+  font-weight: 600;
+}
+
+.ai-cta-button {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--text-light);
+  color: var(--text-light);
+  font-size: 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.ai-cta-button:hover {
+  background: var(--accent-orange);
+  color: #fff;
+  border-color: var(--accent-orange);
+}
+
+/* Testimonials Marquee */
+.adsonic-testimonials-marquee {
+  width: 1200px;
+  overflow: hidden;
+  background: transparent;
+  padding: 1rem 0;
+}
+
+.testimonial-card {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin: 0 1rem;
+  text-align: left;
+  min-width: 300px;
+  max-width: 350px;
+  color: var(--text-light);
+}
+
+.title-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-card img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+.testimonial-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-title {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+}
+
+.testimonial-feedback {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-heading {
+    font-size: 2.2rem;
+  }
+
+  .ai-specialization-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .ai-cta-button {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .adsonic-hero-section {
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .adsonic-hero-overlay {
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .hero-heading {
+    font-size: 1.8rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .ai-specialization-box {
+    padding: 1rem;
+  }
+
+  .testimonial-card {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-heading {
+    font-size: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .hero-cta-button {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .ai-special-icon {
+    font-size: 1.2rem;
+  }
+
+  .ai-specialization-box p {
+    font-size: 0.9rem;
+  }
+
+  .testimonial-card {
+    min-width: 220px;
+  }
+}
