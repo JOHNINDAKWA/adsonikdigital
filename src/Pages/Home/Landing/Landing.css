@@ -1,6 +1,6 @@
 .landing-page-section {
-  background-color: var(--background-light); /* White background */
-  padding: 2rem 1rem; /* Adjust padding as needed */
+  background-color: var(--background-light); 
+  padding: 2rem 1rem; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,9 +13,9 @@
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column; /* Stack vertically on small screens */
+  flex-direction: column;
   align-items: center;
-  gap: 3rem; /* Space between text and image sections */
+  gap: 3rem; 
   width: 100%;
 }
 

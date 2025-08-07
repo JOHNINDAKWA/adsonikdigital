@@ -9,10 +9,10 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
 }
 
 .adsonic-hero-overlay {
@@ -26,10 +26,10 @@
   justify-content: center;
   padding: 2rem;
   text-align: center;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
 }
 
 .adsonic-hero-content {
@@ -201,15 +201,15 @@
 
 @media (max-width: 768px) {
   .adsonic-hero-section {
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
 
   .adsonic-hero-overlay {
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }

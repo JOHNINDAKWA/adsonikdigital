@@ -218,7 +218,7 @@ const Navbar = () => {
         <ul className="sidebar-menu-list">
           <li><Link to="/" onClick={handleLinkClick}>Home</Link></li>
           {/* Case Studies link from screenshot */}
-          <li><Link to="/case-studies" onClick={handleLinkClick}>Case Studies</Link></li>
+          <li><Link to="/about" onClick={handleLinkClick}>About Us</Link></li>
           <li className="sidebar-services-main-toggle">
             <button onClick={() => setIsSidebarServicesExpanded(!isSidebarServicesExpanded)}>
               Services
@@ -247,7 +247,7 @@ const Navbar = () => {
             </ul>
           </li>
           {/* Solutions link from screenshot */}
-          <li><Link to="/solutions" onClick={handleLinkClick}>Solutions</Link></li>
+          <li><Link to="/portfolio" onClick={handleLinkClick}>Portfolio</Link></li>
           <li><Link to="/blog" onClick={handleLinkClick}>Blog</Link></li>
           <li><Link to="/contact" onClick={handleLinkClick}>Contact</Link></li> {/* Moved Contact here as per screenshot */}
         </ul>
