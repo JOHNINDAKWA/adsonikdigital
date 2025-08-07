@@ -80,7 +80,7 @@ const Footer = () => {
             <div className="footer-contact-details">
               <div className="contact-item">
                 <FaMapMarkerAlt />
-                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">123 Digital Ave, Tech City, 54321</a>
+                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">123 Digital Ave, Nairobi City, 654321</a>
               </div>
               <div className="contact-item">
                 <FaEnvelope />
