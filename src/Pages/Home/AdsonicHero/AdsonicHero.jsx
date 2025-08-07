@@ -74,7 +74,7 @@ const AdsonicHero = () => {
             Partner with Adsonic Digital Agency to craft impactful strategies
             that drive growth, increase visibility, and generate real results.
           </p>
-          <button className="hero-cta-button">Contact Sales</button>
+          <button className="hero-cta-button">Contact Us</button>
         </div>
 
         <div className="ai-specialization-box">

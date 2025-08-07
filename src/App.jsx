@@ -6,10 +6,7 @@ import Home from './Pages/Home/Home';
 import Footer from './Components/Footer/Footer';
 import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
-
-
-// Placeholder Components for your pages
-// These now use the 'page-content' class for consistent styling
+import ScrollToTop from './Components/ScrollToTop';
 
 
 const ServicesPage = () => (
@@ -30,6 +27,7 @@ const PortfolioPage = () => (
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Navbar /> 
         <main className="main-content"> 
