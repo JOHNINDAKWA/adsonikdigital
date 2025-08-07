@@ -206,8 +206,8 @@ h4 {
 @media (max-width: 767px) {
 
   .footer-section{
-     border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
+     border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
   }
   .footer-mobile-services {
     display: block;

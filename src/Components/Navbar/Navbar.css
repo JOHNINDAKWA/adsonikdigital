@@ -10,12 +10,14 @@
 }
 /* Navbar Scrolled State */
 .navbar.scrolled {
-background: linear-gradient(
+  background: linear-gradient(
   135deg,
-  rgb(252, 252, 252),
-var(--accent-orange)
+  rgb(252, 252, 252) 0%,
+  var(--accent-orange) 50%,
+  rgb(252, 252, 252) 100%
 );
-/* Light background when scrolled */
+
+  /* Light background when scrolled */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
@@ -81,7 +83,7 @@ var(--accent-orange)
 
 .navbar-links-desktop a,
 .navbar-links-desktop button {
-font-size: 1.05rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--primary-dark-blue);
   background: none;
@@ -148,7 +150,6 @@ font-size: 1.05rem;
   transform: translateY(-8.5px) rotate(-45deg);
 }
 
-
 /* Mega Menu Dropdown (Desktop - for Services) */
 .mega-menu {
   position: absolute;
@@ -160,11 +161,15 @@ font-size: 1.05rem;
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out,
+    visibility 0.3s ease-out;
   z-index: 40;
   padding: 1.5rem 1.5rem; /* Reduced padding for compactness */
   display: grid; /* Use grid for multi-column layout */
-  grid-template-columns: repeat(3, minmax(160px, 1fr)); /* Three columns on large screens, adjusted minmax */
+  grid-template-columns: repeat(
+    3,
+    minmax(160px, 1fr)
+  ); /* Three columns on large screens, adjusted minmax */
   gap: 1rem; /* Reduced gap for compactness */
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
