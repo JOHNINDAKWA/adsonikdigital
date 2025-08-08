@@ -73,10 +73,8 @@ const ProjectGrid = ({ projects, onOpen }) => {
               </a>
               <a
                 className="btn btn-ghost"
-                href={p.moreUrl}
-                target="_blank"
                 rel="noreferrer"
-                onClick={(e) => e.stopPropagation()}
+                onClick={() => onOpen(p)}
               >
                 View More
               </a>
@@ -137,8 +135,8 @@ const WEBSITE_PROJECTS = [
   },
   {
     id: "maggies",
-    title: "Maggie’s Spa",
-    description: "Serene spa site with packages and booking flow.",
+    title: "Maggie’s Pregnancy and Postpartum Spa",
+    description: "Serene pregnancy and postpartum spa site with packages and booking flow, complete with admin dashboard.",
     thumbnail: thumbMaggies,
     video: videoMaggies,
     liveUrl: "http://maggiespregnancyspa.co.ke/",
@@ -287,14 +285,14 @@ const Portfolio = () => {
                 >
                   See Live Project
                 </a>
-                <a
+                {/* <a
                   className="btn btn-ghost"
                   href={active.moreUrl}
                   target="_blank"
                   rel="noreferrer"
                 >
                   View More
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
