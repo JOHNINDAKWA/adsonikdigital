@@ -4,6 +4,7 @@ import "./AdsonicImpactSection.css";
 import LaptopSEO from "../../../assets/images/laptop-seo.png"; // your image
 import LaptopTeam from "../../../assets/images/laptop-team.png"; // your image
 import DarkBgImage from "../../../assets/images/wall9.jpg"; // background image for dark section
+import { Link } from "react-router-dom";
 
 const AdsonicImpactSection = () => {
   return (
@@ -26,7 +27,7 @@ const AdsonicImpactSection = () => {
               we’re committed to delivering exceptional user experiences,
               meaningful engagement, and measurable impact.
             </p>
-            <button className="btn-impact primary">Meet Our Experts</button>
+            <Link to="/services" className="btn-impact primary">Explore Our Services</Link>
           </div>
           <div className="impact-image">
             <img src={LaptopTeam} alt="Adsonic team" />
@@ -50,8 +51,8 @@ const AdsonicImpactSection = () => {
             consistently.
           </p>
           <div className="impact-buttons">
-            <button className="btn-impact primary">Get Started</button>
-            <button className="btn-impact outline">Let’s Talk</button>
+            <Link to="/contact" className="btn-impact primary">Get Started</Link>
+            <Link to="/contact" className="btn-impact outline">Let’s Talk</Link>
           </div>
         </div>
       </div>

@@ -71,7 +71,7 @@ const CAPABILITIES = [
   {
     title: "CRO Programs at Scale",
     body:
-      "Continuous experimentation across ads, landing pages, and funnels. Instrumentation makes wins repeatable—not lucky.",
+      "Continuous experimentation across ads, landing pages, and funnels. Instrumentation makes wins repeatable...not lucky.",
     image: croImg,
     bullets: [
       "North-star metrics & guardrails",

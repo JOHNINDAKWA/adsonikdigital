@@ -34,7 +34,7 @@ const CAPABILITIES = [
   },
   {
     title: "Custom Web & Mobile Apps",
-    body: "We design and build apps that feel effortless—secure auth, clean APIs, and smooth UI patterns. From portals to progressive web apps, we ship production-ready software.",
+    body: "We design and build apps that feel effortless; secure auth, clean APIs, and smooth UI patterns. From portals to progressive web apps, we ship production-ready software.",
     image: customAppImg,
     bullets: [
       "React / Next.js / Node",
@@ -45,7 +45,7 @@ const CAPABILITIES = [
   },
   {
     title: "Database Design & Integrations",
-    body: "Reliable data models and sensible integrations ensure everything talks to everything—without spaghetti. Migrations, syncing, and observability handled.",
+    body: "Reliable data models and sensible integrations ensure everything talks to everything...without spaghetti. Migrations, syncing, and observability handled.",
     image: databaseImg,
     bullets: [
       "Relational & NoSQL data models",

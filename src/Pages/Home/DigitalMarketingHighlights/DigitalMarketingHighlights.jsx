@@ -46,7 +46,7 @@ const DigitalMarketingHighlights = () => {
             Core Web Vitals, SEO, and seamless editing.
           </p>
           <p className="dm-stat">
-            <strong className="highlight">900+</strong> websites launched by our team
+            <strong className="highlight">300+</strong> websites launched by our team
           </p>
           <Link to="/services/web-&-app-development" className="btn-service-page">
             Learn More

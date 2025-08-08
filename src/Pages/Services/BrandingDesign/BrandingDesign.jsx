@@ -25,7 +25,7 @@ const CAPABILITIES = [
   {
     title: "Brand Identity",
     body:
-      "Cohesive visual systems—color, typography, grids, and components, so every touchpoint feels intentional and on-brand.",
+      "Cohesive visual systems, color, typography, grids, and components, so every touchpoint feels intentional and on-brand.",
     image: identityImg,
     bullets: [
       "Color systems & typography stacks",
@@ -36,7 +36,7 @@ const CAPABILITIES = [
   {
     title: "Graphic Design",
     body:
-      "Campaign assets that pop across print and digital—social sets, ads, decks, and more—delivered production-ready.",
+      "Campaign assets that pop across print and digital—social sets, ads, decks, and more...delivered production-ready.",
     image: graphicImg,
     bullets: [
       "Social kits & ad creative",
@@ -47,7 +47,7 @@ const CAPABILITIES = [
   {
     title: "UI/UX Design",
     body:
-      "Human-centered product design—from flows and wireframes to polished interfaces that are accessible and conversion-focused.",
+      "Human-centered product design; from flows and wireframes to polished interfaces that are accessible and conversion-focused.",
     image: uiuxImg,
     bullets: [
       "User flows & low/high-fidelity wireframes",
@@ -58,7 +58,7 @@ const CAPABILITIES = [
   {
     title: "Print Design",
     body:
-      "Press-ready layouts for brochures, packaging, stationery, and large format—crafted to look sharp in the real world.",
+      "Press-ready layouts for brochures, packaging, stationery, and large format, crafted to look sharp in the real world.",
     image: printImg,
     bullets: [
       "Bleeds, CMYK profiles & dielines",

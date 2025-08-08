@@ -119,7 +119,7 @@ const AboutUs = () => {
 
             <div className="about-us-stats">
               <div className="stat-item">
-                <span className="stat-number">400+</span>
+                <span className="stat-number">300+</span>
                 <span className="stat-label">Websites Launched</span>
               </div>
               <div className="stat-item">

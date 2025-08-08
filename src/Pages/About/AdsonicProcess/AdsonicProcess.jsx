@@ -3,32 +3,32 @@ import "./AdsonicProcess.css";
 import { MdOutlineLibraryAddCheck } from "react-icons/md";
 
 const winningTactics = [
-  "Leverage integrated campaigns across SEO, social, and paid media to dominate channels.",
-  "Craft high-converting landing pages backed by conversion rate optimization data.",
-  "Use A/B testing to refine performance and improve ROI over time.",
-  "Track KPIs via real-time dashboards and actionable reporting insights.",
+  "Be found online: show up on Google, social media, and maps when customers search.",
+  "Turn clicks into customers: simple pages, clear messages, easy calls to action.",
+  "Improve what works: test headlines, images, and offers to grow results steadily.",
+  "See your progress: clear reports that show calls, messages, sales, and costs.",
 ];
 
 const methodologySteps = [
   {
-    step: "1: Discover",
-    desc: "We begin with an audit of your brand, audience, and digital footprint to align goals.",
+    step: "1: Listen",
+    desc: "We sit down with you to understand your business, budget, and goals...no tech talk.",
   },
   {
-    step: "2: Strategize",
-    desc: "We craft data-driven strategies tailored to your goals, budget, and industry trends.",
+    step: "2: Plan",
+    desc: "We map a simple plan: who we’re targeting, what we’ll say, and where we’ll show it.",
   },
   {
-    step: "3: Launch",
-    desc: "Our team implements campaigns with technical precision and creative flair.",
+    step: "3: Build",
+    desc: "We set up your website/pages, ads, and tracking, clean, fast, and mobile-friendly.",
   },
   {
-    step: "4: Optimize",
-    desc: "We monitor performance, refine approaches, and ensure constant improvement.",
+    step: "4: Launch",
+    desc: "Go live. We watch the numbers closely and make quick fixes in the first days.",
   },
   {
-    step: "5: Scale",
-    desc: "Once results are strong, we expand your reach across platforms and territories.",
+    step: "5: Grow",
+    desc: "Every month we refine what’s working and add channels as results improve.",
   },
 ];
 
@@ -37,21 +37,20 @@ const AdsonicProcess = () => {
     <section className="strategy-section">
       <div className="strategy-container">
         {/* Winning Tactics */}
-        <h2 className="section-heading">Winning Tactics</h2>
+        <h2 className="section-heading">How We Help You Win</h2>
         <div className="tactics-grid">
           {winningTactics.map((tactic, index) => (
             <div className="tactic-card" key={index}>
               <div className="check-icon-wrapper">
                 <MdOutlineLibraryAddCheck className="custom-check-icon" />
               </div>
-
               <p>{tactic}</p>
             </div>
           ))}
         </div>
 
-        {/* Our Methodology */}
-        <h2 className="section-heading method-heading">Our Methodology</h2>
+        {/* Our Process */}
+        <h2 className="section-heading method-heading">Our Simple Process</h2>
         <div className="methodology-wrapper">
           <div className="method-line" />
           <div className="method-steps">

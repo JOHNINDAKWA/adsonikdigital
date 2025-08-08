@@ -2,6 +2,7 @@ import React from "react";
 import "./BrandingDesignSection.css";
 import DesignShowcaseImage from "../../../assets/images/designs.jpg"; // Replace with your image path
 import { FaPaintBrush, FaVectorSquare, FaPenNib, FaPalette, FaLayerGroup } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const BrandingDesignSection = () => {
   return (
@@ -31,7 +32,7 @@ const BrandingDesignSection = () => {
             </div>
           </ul>
 
-          <button className="btn-service-page">Explore Branding Services</button>
+          <Link to="/services/branding-&-design" className="btn-service-page">Explore Branding Services</Link>
         </div>
 
         {/* Image Side */}

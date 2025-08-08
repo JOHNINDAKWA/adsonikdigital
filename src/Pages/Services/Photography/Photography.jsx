@@ -15,7 +15,7 @@ const CAPABILITIES = [
   {
     title: "Product Photography",
     body:
-      "From e-commerce to catalog shots, we capture your products in perfect lighting and detail—helping them stand out online and in print.",
+      "From e-commerce to catalog shots, we capture your products in perfect lighting and detail...helping them stand out online and in print.",
     image: productImg,
     bullets: [
       "High-resolution studio setups",
@@ -59,7 +59,7 @@ const CAPABILITIES = [
   {
     title: "Real Estate Photography",
     body:
-      "Crisp, inviting property shots that showcase interiors and exteriors—perfect for listings, brochures, and virtual tours.",
+      "Crisp, inviting property shots that showcase interiors and exteriors; perfect for listings, brochures, and virtual tours.",
     image: realEstateImg,
     bullets: [
       "Wide-angle & drone captures",

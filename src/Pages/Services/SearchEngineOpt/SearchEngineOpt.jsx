@@ -37,7 +37,7 @@ const CAPABILITIES = [
   {
     title: "Page Speed Optimization",
     body:
-      "Speed is conversion. We tune performance budgets and ship fixes that move Core Web Vitals—LCP, INP, and CLS—so pages load fast and rank better.",
+      "Speed is conversion. We tune performance budgets and ship fixes that move Core Web Vitals; LCP, INP, and CLS...so pages load fast and rank better.",
     image: speedImg,
     bullets: [
       "Image strategy & critical CSS",
