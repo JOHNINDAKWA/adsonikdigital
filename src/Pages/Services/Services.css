@@ -1,0 +1,142 @@
+.services-page {
+  background: var(--background-light);
+  padding: 48px 0 80px;
+}
+
+/* Breadcrumb */
+.services-breadcrumb {
+  font-size: 0.95rem;
+  color: var(--text-dark-light);
+  margin-bottom: 10px;
+}
+.services-breadcrumb a { color: var(--primary-dark-blue); text-decoration: none; }
+.services-breadcrumb .active { color: var(--accent-orange); font-weight: 700; }
+.services-breadcrumb span { margin: 0 8px; }
+
+/* Intro */
+.services-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.services-header h1 {
+  color: var(--primary-dark-blue);
+  font-weight: 800;
+  font-size: clamp(2rem, 3vw, 2.5rem);
+}
+.services-header p {
+  color: var(--text-dark-light);
+  margin-top: 8px;
+}
+
+/* Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 28px;
+}
+
+/* Each card */
+.service-card {
+  grid-column: span 4;
+  position: relative;
+  display: block;
+  height: 420px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0b1022;
+  box-shadow: 0 12px 28px rgba(0,0,0,.08);
+  text-decoration: none;
+  isolation: isolate; /* so overlay layers behave */
+}
+
+/* Background image + states */
+.service-card::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.6) brightness(0.55);
+  transform: scale(1.04);
+  transition: filter .35s ease, transform .35s ease;
+  z-index: 1;
+}
+
+/* Dark wash (to match your reference) */
+.service-gradient {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(5,7,15,.6), rgba(5,7,15,.75));
+  z-index: 2;
+  transition: opacity .35s ease;
+}
+
+/* Content */
+.service-content {
+  position: absolute; left: 24px; right: 24px; bottom: 24px;
+  z-index: 3;
+  color: #fff;
+  transition: transform .35s ease;
+}
+
+.service-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+}
+
+.service-blurb {
+  margin: 0;
+  color: #e9eefb;
+  line-height: 1.6;
+}
+
+/* Hidden arrow that reveals on hover */
+.service-arrow {
+  margin-top: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--primary-dark-blue);
+  background: var(--text-light);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .35s ease, transform .35s ease, background .2s ease, color .2s ease;
+}
+
+/* Hover interaction: image brightens, text lifts, arrow fades in */
+.service-card:hover::before {
+  filter: saturate(1) brightness(0.9);
+  transform: scale(1.02);
+}
+.service-card:hover .service-gradient { opacity: .35; }
+.service-card:hover .service-content { transform: translateY(-14px); }
+.service-card:hover .service-arrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+.service-card:hover .service-arrow:hover {
+  background: var(--accent-orange);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .service-card { grid-column: span 6; height: 400px; }
+}
+@media (max-width: 700px) {
+  .service-card { grid-column: span 12; height: 360px; }
+}
+
+/* Container helper (align with your global .container class) */
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}

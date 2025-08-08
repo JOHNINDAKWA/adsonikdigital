@@ -127,7 +127,7 @@ const Landing = () => {
   </p>
 
   <Link to="/services" className="promo-cta">
-    Start your growth plan <FaArrowRightLong />
+    Explore Our Services <FaArrowRightLong />
   </Link>
 
   <div className="promo-badges">

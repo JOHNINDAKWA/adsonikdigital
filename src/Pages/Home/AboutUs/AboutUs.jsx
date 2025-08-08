@@ -164,7 +164,7 @@ const AboutUs = () => {
             </div> */}
 
             <div className="logos-row">
-              <h3 className="logos-title">Our Clients and Partners</h3>
+              <h3 className="logos-title">They Trust Us</h3>
               <Marquee
                 speed={30}
                 pauseOnHover

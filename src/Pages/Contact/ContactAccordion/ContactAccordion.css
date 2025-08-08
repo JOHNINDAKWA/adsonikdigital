@@ -1,11 +1,11 @@
 .accordion-section {
-  background-color: var(--primary-dark-blue);
+  background: url('../../../assets/images/blue-bg.jpeg') center center / cover no-repeat;
   padding: 200px 0 100px;
   margin-top: -250px; /* pull upwards */
   position: relative;
   z-index: 1;
-
 }
+
 
 .accordion-title {
   text-align: center;

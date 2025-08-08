@@ -1,16 +1,42 @@
 // Navbar.jsx
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Removed useLocation as it's not directly used here
-import './Navbar.css'; // Import the custom CSS
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Removed useLocation as it's not directly used here
+import "./Navbar.css"; // Import the custom CSS
+import { useRef } from "react";
 
 // Placeholder for your logo image. Replace with your actual logo path.
-import LOGO from "../../assets/images/logo-removebg-preview.png" // Placeholder logo
+import LOGO from "../../assets/images/logo-removebg-preview.png"; // Placeholder logo
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDesktopServicesMenuOpen, setIsDesktopServicesMenuOpen] = useState(false); // Renamed for clarity
-  const [isSidebarServicesExpanded, setIsSidebarServicesExpanded] = useState(false); // State for main "Services" expansion in sidebar
+  const [isDesktopServicesMenuOpen, setIsDesktopServicesMenuOpen] =
+    useState(false); // Renamed for clarity
+  const [isSidebarServicesExpanded, setIsSidebarServicesExpanded] =
+    useState(false); // State for main "Services" expansion in sidebar
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const servicesMenuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        servicesMenuRef.current &&
+        !servicesMenuRef.current.contains(event.target)
+      ) {
+        setIsDesktopServicesMenuOpen(false);
+      }
+    };
+
+    if (isDesktopServicesMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDesktopServicesMenuOpen]);
 
   // Effect for sticky navbar on scroll
   useEffect(() => {
@@ -22,21 +48,21 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   // Add/remove class to html to prevent scrolling when sidebar is open
   useEffect(() => {
     if (isMenuOpen) {
-      document.documentElement.classList.add('sidebar-active');
+      document.documentElement.classList.add("sidebar-active");
     } else {
-      document.documentElement.classList.remove('sidebar-active');
+      document.documentElement.classList.remove("sidebar-active");
     }
     return () => {
-      document.documentElement.classList.remove('sidebar-active');
+      document.documentElement.classList.remove("sidebar-active");
     };
   }, [isMenuOpen]);
 
@@ -44,7 +70,8 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     // Reset sidebar service expansion when closing the main sidebar
-    if (isMenuOpen) { // If menu is about to close
+    if (isMenuOpen) {
+      // If menu is about to close
       setIsSidebarServicesExpanded(false);
     }
     // Ensure desktop services menu is closed when sidebar is toggled
@@ -70,7 +97,7 @@ const Navbar = () => {
 
   // Data for the desktop services mega menu
   const desktopServicesData = {
-    "Web Development": [
+    "Web & App Development": [
       "Custom Design & Development",
       "Ecommerce Design & Development",
       "Software Design & Development",
@@ -78,7 +105,7 @@ const Navbar = () => {
       "CRM Design & Development",
       "WordPress Website Development",
     ],
-    "SEO": [
+    SEO: [
       "Answer Engine Optimization (AEO)",
       "SEO Audit Services",
       "Page Speed Optimization",
@@ -94,14 +121,14 @@ const Navbar = () => {
       "Brand Strategy Services",
       "Conversion Rate Optimization",
     ],
-    "Photography": [
+    Photography: [
       "Product Photography",
       "Corporate Headshots",
       "Event Photography",
       "Commercial Photography",
       "Real Estate Photography",
     ],
-    "Videography": [
+    Videography: [
       "Promotional Videos",
       "Explainer Videos",
       "Corporate Videos",
@@ -114,7 +141,7 @@ const Navbar = () => {
       "Graphic Design",
       "UI/UX Design",
       "Print Design",
-    ]
+    ],
   };
 
   // Simplified data for sidebar services, matching screenshot
@@ -126,7 +153,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
       <div className="navbar-container">
         {/* Logo Section */}
         <div className="navbar-logo">
@@ -139,12 +166,18 @@ const Navbar = () => {
         <div className="navbar-right-section">
           {/* Desktop Navigation Links (always visible on large screens) */}
           <ul className="navbar-links-desktop">
-            <li><Link to="/" onClick={handleLinkClick}>Home</Link></li>
-            <li className="navbar-services-dropdown">
+            <li>
+              <Link to="/" onClick={handleLinkClick}>
+                Home
+              </Link>
+            </li>
+            <li className="navbar-services-dropdown" ref={servicesMenuRef}>
               <button onClick={toggleDesktopServicesMenu}>
                 Services
                 <svg
-                  className={`dropdown-arrow ${isDesktopServicesMenuOpen ? 'rotate-180' : ''}`}
+                  className={`dropdown-arrow ${
+                    isDesktopServicesMenuOpen ? "rotate-180" : ""
+                  }`}
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -157,34 +190,64 @@ const Navbar = () => {
                 </svg>
               </button>
               {/* Services Mega Menu Dropdown */}
-              <div className={`mega-menu ${isDesktopServicesMenuOpen ? 'open' : ''}`}>
-                {Object.entries(desktopServicesData).map(([mainService, subServices]) => (
-                  <div key={mainService} className="mega-menu-section">
-                    <h3>{mainService}</h3>
-                    <ul>
-                      {subServices.map((subService, index) => (
-                        <li key={index}>
-                          <Link
-                            to={`/services#${mainService.toLowerCase().replace(/\s/g, '-')}-${subService.toLowerCase().replace(/\s/g, '-')}`}
-                            onClick={handleLinkClick}
-                          >
-                            {subService}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
+              <div
+                className={`mega-menu ${
+                  isDesktopServicesMenuOpen ? "open" : ""
+                }`}
+              >
+                {Object.entries(desktopServicesData).map(
+                  ([mainService, subServices]) => (
+                    <div key={mainService} className="mega-menu-section">
+                      <h3>
+                        <Link
+                          to={`/services/${mainService
+                            .toLowerCase()
+                            .replace(/\s/g, "-")}`}
+                          onClick={handleLinkClick}
+                        >
+                          {mainService}
+                        </Link>
+                      </h3>
+
+                      <ul>
+                        {subServices.map((subService, index) => (
+                          <li key={index}>
+                            <Link
+                             to={`/services/${mainService
+                            .toLowerCase()
+                            .replace(/\s/g, "-")}`}
+                              onClick={handleLinkClick}
+                            >
+                              {subService}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                )}
               </div>
             </li>
-            <li><Link to="/portfolio" onClick={handleLinkClick}>Portfolio</Link></li>
-            <li><Link to="/about" onClick={handleLinkClick}>About Us</Link></li>
-            <li><Link to="/contact" onClick={handleLinkClick}>Contact</Link></li>
+            <li>
+              <Link to="/portfolio" onClick={handleLinkClick}>
+                Portfolio
+              </Link>
+            </li>
+            <li>
+              <Link to="/about" onClick={handleLinkClick}>
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={handleLinkClick}>
+                Contact
+              </Link>
+            </li>
           </ul>
 
           {/* Animated Hamburger Icon (always visible) */}
           <div
-            className={`hamburger-icon ${isMenuOpen ? 'open' : ''}`}
+            className={`hamburger-icon ${isMenuOpen ? "open" : ""}`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -196,10 +259,14 @@ const Navbar = () => {
       </div>
 
       {/* Sidebar Menu (for both mobile and large screens) */}
-      <div className={`sidebar-menu ${isMenuOpen ? 'open' : ''}`}>
+      <div className={`sidebar-menu ${isMenuOpen ? "open" : ""}`}>
         <div className="sidebar-header">
           {/* Close button for sidebar (X icon) */}
-          <button className="sidebar-close-button" onClick={toggleMenu} aria-label="Close menu">
+          <button
+            className="sidebar-close-button"
+            onClick={toggleMenu}
+            aria-label="Close menu"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -216,14 +283,28 @@ const Navbar = () => {
         </div>
 
         <ul className="sidebar-menu-list">
-          <li><Link to="/" onClick={handleLinkClick}>Home</Link></li>
+          <li>
+            <Link to="/" onClick={handleLinkClick}>
+              Home
+            </Link>
+          </li>
           {/* Case Studies link from screenshot */}
-          <li><Link to="/about" onClick={handleLinkClick}>About Us</Link></li>
+          <li>
+            <Link to="/about" onClick={handleLinkClick}>
+              About Us
+            </Link>
+          </li>
           <li className="sidebar-services-main-toggle">
-            <button onClick={() => setIsSidebarServicesExpanded(!isSidebarServicesExpanded)}>
+            <button
+              onClick={() =>
+                setIsSidebarServicesExpanded(!isSidebarServicesExpanded)
+              }
+            >
               Services
               <svg
-                className={`dropdown-arrow ${isSidebarServicesExpanded ? 'rotate-180' : ''}`}
+                className={`dropdown-arrow ${
+                  isSidebarServicesExpanded ? "rotate-180" : ""
+                }`}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -236,7 +317,11 @@ const Navbar = () => {
               </svg>
             </button>
             {/* Expanded Services List in Sidebar (Strategy, Creative, Development, All Services) */}
-            <ul className={`sidebar-expanded-services ${isSidebarServicesExpanded ? 'open' : ''}`}>
+            <ul
+              className={`sidebar-expanded-services ${
+                isSidebarServicesExpanded ? "open" : ""
+              }`}
+            >
               {sidebarServicesCategories.map((item, index) => (
                 <li key={index}>
                   <Link to={item.link} onClick={handleLinkClick}>
@@ -247,15 +332,58 @@ const Navbar = () => {
             </ul>
           </li>
           {/* Solutions link from screenshot */}
-          <li><Link to="/portfolio" onClick={handleLinkClick}>Portfolio</Link></li>
-          <li><Link to="/blog" onClick={handleLinkClick}>Blog</Link></li>
-          <li><Link to="/contact" onClick={handleLinkClick}>Contact</Link></li> {/* Moved Contact here as per screenshot */}
+          <li>
+            <Link to="/portfolio" onClick={handleLinkClick}>
+              Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link to="/blog" onClick={handleLinkClick}>
+              Blog
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" onClick={handleLinkClick}>
+              Contact
+            </Link>
+          </li>{" "}
+          {/* Moved Contact here as per screenshot */}
         </ul>
         {/* Social Icons (as seen in screenshot) */}
         <div className="sidebar-social-icons">
-          <a href="#" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.588-1.333h2.412v-3.996h-3.264c-3.116 0-4.736 1.76-4.736 4.686v2.314z"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.012-3.4v-2.147z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.066 1.498.07 2.491.298 3.174.594.673.298 1.147.65 1.519 1.022.372.372.724.847 1.022 1.519.297.683.525 1.676.594 3.174.054 1.266.066 1.646.066 4.85s-.012 3.584-.066 4.85c-.07 1.498-.298 2.491-.594 3.174-.298.673-.65 1.147-1.022 1.519-.372.372-.847.724-1.519 1.022-.683.297-1.676.525-3.174.594-1.266.054-1.646.066-4.85.066s-3.584-.012-4.85-.066c-1.498-.07-2.491-.298-3.174-.594-.673-.298-1.147-.65-1.519-1.022-.372-.372-.847-.724-1.022-1.519-.297-.683-.525-1.676-.594-3.174-.054-1.266-.066-1.646-.066-4.85s.012-3.584.066-4.85c.07-1.498.298-2.491.594-3.174.298-.673.65-1.147 1.022-1.519.372-.372.847-.724 1.519-1.022.683-.297 1.676-.525 3.174-.594 1.266-.054 1.646-.066 4.85-.066zm0 2.163c-3.259 0-3.667.014-4.947.072-1.543.074-2.443.341-3.233.668-.789.327-1.437.903-2.071 1.537-.634.634-1.209 1.283-1.537 2.071-.327.79-.594 1.68-.668 3.233-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.074 1.543.341 2.443.668 3.233.327.789.903 1.437 1.537 2.071.634.634 1.283 1.209 2.071 1.537.79.327 1.68.594 3.233.668 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.543-.074 2.443-.341 3.233-.668.789-.327 1.437-.903 2.071-1.537.634-.634 1.209-1.283 1.537-2.071.327-.79.594-1.68.668-3.233.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.074-1.543-.341-2.443-.668-3.233-.327-.789-.903-1.437-1.537-2.071-.634-.634-1.283-1.209-2.071-1.537-.79-.327-1.68-.594-3.233-.668-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.444.647-1.444 1.443s.647 1.443 1.444 1.443c.795 0 1.443-.647 1.443-1.443s-.648-1.443-1.443-1.443z"/></svg></a>
+          <a href="#" aria-label="Facebook">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.588-1.333h2.412v-3.996h-3.264c-3.116 0-4.736 1.76-4.736 4.686v2.314z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.012-3.4v-2.147z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.066 1.498.07 2.491.298 3.174.594.673.298 1.147.65 1.519 1.022.372.372.724.847 1.022 1.519.297.683.525 1.676.594 3.174.054 1.266.066 1.646.066 4.85s-.012 3.584-.066 4.85c-.07 1.498-.298 2.491-.594 3.174-.298.673-.65 1.147-1.022 1.519-.372.372-.847.724-1.519 1.022-.683.297-1.676.525-3.174.594-1.266.054-1.646.066-4.85.066s-3.584-.012-4.85-.066c-1.498-.07-2.491-.298-3.174-.594-.673-.298-1.147-.65-1.519-1.022-.372-.372-.847-.724-1.022-1.519-.297-.683-.525-1.676-.594-3.174-.054-1.266-.066-1.646-.066-4.85s.012-3.584.066-4.85c.07-1.498.298-2.491.594-3.174.298-.673.65-1.147 1.022-1.519.372-.372.847-.724 1.519-1.022.683-.297 1.676-.525 3.174-.594 1.266-.054 1.646-.066 4.85-.066zm0 2.163c-3.259 0-3.667.014-4.947.072-1.543.074-2.443.341-3.233.668-.789.327-1.437.903-2.071 1.537-.634.634-1.209 1.283-1.537 2.071-.327.79-.594 1.68-.668 3.233-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.074 1.543.341 2.443.668 3.233.327.789.903 1.437 1.537 2.071.634.634 1.283 1.209 2.071 1.537.79.327 1.68.594 3.233.668 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.543-.074 2.443-.341 3.233-.668.789-.327 1.437-.903 2.071-1.537.634-.634 1.209-1.283 1.537-2.071.327-.79.594-1.68.668-3.233.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.074-1.543-.341-2.443-.668-3.233-.327-.789-.903-1.437-1.537-2.071-.634-.634-1.283-1.209-2.071-1.537-.79-.327-1.68-.594-3.233-.668-1.28-.058-1.688-.072-4.947-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.444.647-1.444 1.443s.647 1.443 1.444 1.443c.795 0 1.443-.647 1.443-1.443s-.648-1.443-1.443-1.443z" />
+            </svg>
+          </a>
         </div>
       </div>
     </nav>

@@ -8,21 +8,14 @@ import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import ScrollToTop from './Components/ScrollToTop';
 import Portfolio from './Pages/Portfolio/Portfolio';
+import Services from './Pages/Services/Services';
+import WebAppDev from './Pages/Services/WebAppDev/WebAppDev';
+import SearchEngineOpt from './Pages/Services/SearchEngineOpt/SearchEngineOpt';
+import DigitalMarketting from './Pages/Services/DigitalMarketting/DigitalMarketting';
+import Photography from './Pages/Services/Photography/Photography';
+import BrandingDesign from './Pages/Services/BrandingDesign/BrandingDesign';
+import Videography from './Pages/Services/Videography/Videography';
 
-
-const ServicesPage = () => (
-  <div className="page-content">
-    <h1>Our Services</h1>
-    <p>Explore our comprehensive digital marketing solutions.</p>
-  </div>
-);
-
-const PortfolioPage = () => (
-  <div className="page-content">
-    <h1>Our Portfolio</h1>
-    <p>See our successful projects.</p>
-  </div>
-);
 
 
 const App = () => {
@@ -34,7 +27,13 @@ const App = () => {
         <main className="main-content"> 
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/web-&-app-development" element={<WebAppDev />} />
+            <Route path="/services/seo" element={<SearchEngineOpt />} />
+            <Route path="/services/digital-marketing" element={<DigitalMarketting />} />
+            <Route path="/services/photography" element={<Photography />} />
+            <Route path="/services/videography" element={<Videography />} />
+            <Route path="/services/branding-&-design" element={<BrandingDesign />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
