@@ -24,7 +24,7 @@ const DigitalMarketingHighlights = () => {
           </h4>
           <h2 className="dm-title">Full-Funnel Campaigns That Drive Revenue</h2>
           <p className="dm-description">
-            We plan, launch, and optimize cross-channel campaigns—paid, social, email, and content—
+            We plan, launch, and optimize cross-channel campaigns—paid, social, email, and content...
             so your brand shows up where buyers are and converts more of them.
           </p>
           <Link to="/services/digital-marketing" className="btn-service-page">
