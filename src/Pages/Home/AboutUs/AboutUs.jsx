@@ -113,13 +113,13 @@ const AboutUs = () => {
               to businesses across the globe. Our team of passionate
               professionals leverages strategic insight and technical excellence
               to meet your unique digital needs. From robust web development and
-              data-driven marketing to enterprise SEO and custom CRM solutions —
+              data-driven marketing to enterprise SEO and custom CRM solutions..,
               we turn ideas into impact.
             </p>
 
             <div className="about-us-stats">
               <div className="stat-item">
-                <span className="stat-number">1865</span>
+                <span className="stat-number">400+</span>
                 <span className="stat-label">Websites Launched</span>
               </div>
               <div className="stat-item">

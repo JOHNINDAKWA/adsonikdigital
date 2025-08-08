@@ -146,10 +146,12 @@ const Navbar = () => {
 
   // Simplified data for sidebar services, matching screenshot
   const sidebarServicesCategories = [
-    { name: "Strategy", link: "/services#strategy" },
-    { name: "Creative", link: "/services#creative" },
-    { name: "Development", link: "/services#development" },
-    { name: "All Services", link: "/services" },
+    { name: "Software Development", link: "/services/web-&-app-development" },
+    { name: "SEO", link: "/services/seo" },
+    { name: "Digital Marketing", link: "/services/digital-marketing" },
+    { name: "Branding and Design", link: "/services/branding-&-design" },
+    { name: "Photography", link: "/services/photography" },
+    { name: "Videography", link: "/services/videography" },
   ];
 
   return (
@@ -288,7 +290,7 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          {/* Case Studies link from screenshot */}
+         
           <li>
             <Link to="/about" onClick={handleLinkClick}>
               About Us
@@ -337,19 +339,14 @@ const Navbar = () => {
               Portfolio
             </Link>
           </li>
-          <li>
-            <Link to="/blog" onClick={handleLinkClick}>
-              Blog
-            </Link>
-          </li>
+      
           <li>
             <Link to="/contact" onClick={handleLinkClick}>
               Contact
             </Link>
-          </li>{" "}
-          {/* Moved Contact here as per screenshot */}
+          </li>
         </ul>
-        {/* Social Icons (as seen in screenshot) */}
+    
         <div className="sidebar-social-icons">
           <a href="#" aria-label="Facebook">
             <svg

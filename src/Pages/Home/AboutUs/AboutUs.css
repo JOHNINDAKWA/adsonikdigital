@@ -2,7 +2,7 @@
 .about-us-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   color: var(--text-light);
   display: flex;
   align-items: center;

@@ -25,7 +25,7 @@ const CAPABILITIES = [
   {
     title: "Brand Identity",
     body:
-      "Cohesive visual systems—color, typography, grids, and components—so every touchpoint feels intentional and on-brand.",
+      "Cohesive visual systems—color, typography, grids, and components, so every touchpoint feels intentional and on-brand.",
     image: identityImg,
     bullets: [
       "Color systems & typography stacks",

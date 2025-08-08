@@ -118,7 +118,7 @@ const Services = () => {
       <header className="services-header container">
         <h1>What We Do</h1>
         <p>
-          Full-stack digital execution—from brand to build to growth. Explore our
+          Full-stack digital execution...from brand to build to growth. Explore our
           core disciplines below.
         </p>
       </header>

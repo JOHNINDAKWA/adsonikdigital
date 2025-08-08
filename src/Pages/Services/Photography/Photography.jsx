@@ -26,7 +26,7 @@ const CAPABILITIES = [
   {
     title: "Corporate Headshots",
     body:
-      "Professional headshots that reflect your brand and personality—ideal for websites, LinkedIn profiles, and press kits.",
+      "Professional headshots that reflect your brand and personality, ideal for websites, LinkedIn profiles, and press kits.",
     image: headshotImg,
     bullets: [
       "On-location or studio sessions",
@@ -81,7 +81,7 @@ const Photography = () => {
               Photography That <span>Tells Your Story</span>
             </h1>
             <p>
-              From products to people and events—our lens captures visuals that
+              From products to people and events, our lens captures visuals that
               inspire, sell, and connect. Styled, shot, and edited with your
               goals in mind.
             </p>

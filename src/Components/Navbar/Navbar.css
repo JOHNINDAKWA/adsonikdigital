@@ -226,7 +226,7 @@
   top: 0;
   right: 0;
   height: 100%;
-  width: 100%;
+  width: 70%;
   background-color: var(--background-light);
   color: var(--primary-dark-blue);
   transform: translateX(100%);

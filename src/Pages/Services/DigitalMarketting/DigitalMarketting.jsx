@@ -27,7 +27,7 @@ const CAPABILITIES = [
   {
     title: "Pay-Per-Click Advertising (PPC)",
     body:
-      "High-intent campaigns tuned for ROI. From keyword strategy to creative testing and bid automation—we scale spend only when it’s profitable.",
+      "High-intent campaigns tuned for ROI. From keyword strategy to creative testing and bid automation, we scale spend only when it’s profitable.",
     image: ppcImg,
     bullets: [
       "Google & YouTube Ads (Search/PMAX)",

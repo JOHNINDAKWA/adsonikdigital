@@ -80,7 +80,7 @@ const Videography = () => {
               <span>Videography</span> That Captivates and Converts
             </h1>
             <p>
-              From brand stories to product explainers — we craft compelling
+              From brand stories to product explainers, we craft compelling
               videos that inspire, inform, and influence your audience.
             </p>
             <div className="video-divider" />

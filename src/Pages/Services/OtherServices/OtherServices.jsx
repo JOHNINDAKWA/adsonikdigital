@@ -8,7 +8,7 @@ import seoImg from "../../../assets/images/services/seo.jpg";
 import marketingImg from "../../../assets/images/services/digita.jpg";
 import photoImg from "../../../assets/images/services/photography-banner.jpg";
 import videoImg from "../../../assets/images/services/videography.jpg";
-import brandImg from "../../../assets/images/services/page-speed.jpg";
+import brandImg from "../../../assets/images/services/logo-design.jpg";
 
 const ALL_SERVICES = [
   { key: "webdev", title: "Web & App Development", image: webImg, link: "/services/webdev" },

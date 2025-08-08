@@ -84,7 +84,7 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <FaEnvelope />
-                <a href="mailto:info@adsonic.com">info@adsonic.com</a>
+                <a href="mailto:info@adsonic.com">info@adsonic.co.ke</a>
               </div>
               <div className="contact-item">
                 <FaPhone />

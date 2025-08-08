@@ -17,7 +17,7 @@ const blocks = [
     type: "text",
     title: <> <span>Who We Are</span> </>,
     body:
-      "Adsonic is more than a digital agency — we’re a team of creators, strategists and developers dedicated to helping businesses grow. From bold brand identities to scalable websites and targeted campaigns, we build digital assets that convert.",
+      "Adsonic is more than a digital agency, we’re a team of creators, strategists and developers dedicated to helping businesses grow. From bold brand identities to scalable websites and targeted campaigns, we build digital assets that convert.",
   },
   { type: "img", src: Img2, alt: "about-1" },
 

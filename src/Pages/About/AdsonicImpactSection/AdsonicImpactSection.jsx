@@ -22,7 +22,7 @@ const AdsonicImpactSection = () => {
               to fuel digital growth.
             </h2>
             <p>
-              A collective of seasoned designers, developers, and marketers —
+              A collective of seasoned designers, developers, and marketers, 
               we’re committed to delivering exceptional user experiences,
               meaningful engagement, and measurable impact.
             </p>
@@ -46,7 +46,7 @@ const AdsonicImpactSection = () => {
           </h2>
           <p>
             From technical SEO and UI/UX enhancements to data-driven marketing
-            campaigns, Adsonic ensures your brand performs at its best —
+            campaigns, Adsonic ensures your brand performs at its best,
             consistently.
           </p>
           <div className="impact-buttons">

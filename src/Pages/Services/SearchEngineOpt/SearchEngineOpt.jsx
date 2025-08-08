@@ -15,7 +15,7 @@ const CAPABILITIES = [
   {
     title: "Answer Engine Optimization (AEO)",
     body:
-      "Optimize for AI/answer engines and featured results. Structure content, entities, and markup so your brand is the best short answer—across Google, Perplexity, and beyond.",
+      "Optimize for AI/answer engines and featured results. Structure content, entities, and markup so your brand is the best short answer, across Google, Perplexity, and beyond.",
     image: aeoImg,
     bullets: [
       "Entity mapping & schema strategy",
@@ -26,7 +26,7 @@ const CAPABILITIES = [
   {
     title: "SEO Audit & Technical Foundations",
     body:
-      "We diagnose crawl, indexation, and rendering issues—then build a prioritized roadmap. Clean architecture, no wasted crawl budget, and a site search engines love.",
+      "We diagnose crawl, indexation, and rendering issues, then build a prioritized roadmap. Clean architecture, no wasted crawl budget, and a site search engines love.",
     image: auditImg,
     bullets: [
       "Crawl/index audits (logs, sitemaps, robots)",
@@ -81,7 +81,7 @@ const SearchEngineOpt = () => {
               SEO that <span>Ranks</span> & Converts
             </h1>
             <p>
-              From technical SEO and AEO to content and GA4—show up where
+              From technical SEO and AEO to content and GA4, show up where
               buyers search, load fast, and turn traffic into revenue.
             </p>
             <div className="seo-divider" />
