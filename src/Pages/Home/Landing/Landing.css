@@ -1,5 +1,12 @@
 .landing-page-section {
-  background-color: var(--background-light); 
+  /* background-color: var(--background-light);  */
+  background-image: url('../../../assets/images/light-orange45.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; /* or 'contain' for patterns */
+  background-position: center;
+  background-blend-mode: lighten; /* keeps it faint */
+  opacity: 0.98; /* keep content fully visible but faint image */
+  
   padding: 2rem 1rem; 
   display: flex;
   flex-direction: column;
@@ -8,6 +15,7 @@
   min-height: 100vh;
   justify-content: center;
 }
+
 
 .landing-page-content-container {
   max-width: 1200px;
@@ -27,6 +35,125 @@
     padding: 1rem 0; /* Add some vertical padding */
   }
 }
+
+
+/* --- Promo Card (LOOP-ad style) --- */
+.promo-card {
+  text-align: center;
+  /* background: #fff; */
+  /* border: 1px solid var(--border-color); */
+  border-radius: 20px;
+  padding: 36px 28px;
+  max-width: 640px;
+  width: 100%;
+  /* box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06); */
+  margin: 0 auto; /* centered on mobile */
+}
+
+@media (min-width: 1024px) {
+  .promo-card { margin: 0; } /* aligns left in your side-by-side layout */
+}
+
+/* subtle section gradient behind card (optional but matches the ad vibe) */
+/* .landing-page-section {
+  background: linear-gradient(
+    180deg,
+    rgba(250, 200, 109, 0.25) 0%,
+    rgba(255, 255, 255, 0.9) 100%
+  ); */
+  /* background: white; */
+/* } */
+
+/* eyebrow */
+.promo-eyebrow {
+  font-weight: 700;
+  letter-spacing: .3px;
+  color: var(--text-dark-light);
+  margin-bottom: 10px;
+}
+
+/* headline */
+.promo-heading {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.1;
+  font-weight: 800;
+  color: var(--primary-dark-blue);
+  margin-bottom: 10px;
+}
+.promo-heading span { color: var(--accent-orange); }
+
+/* sub */
+.promo-sub {
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  line-height: 1.7;
+  max-width: 52ch;
+  margin: 0 auto 22px;
+}
+
+/* big CTA */
+.promo-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: var(--accent-orange);
+  color: var(--text-light);
+  font-weight: 800;
+  border: 2px solid var(--accent-orange);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border .2s ease;
+  box-shadow: 0 10px 24px rgba(242,169,0,.25);
+}
+.promo-cta:hover {
+  background: var(--primary-dark-blue);
+  border-color: var(--primary-dark-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(29,23,87,.25);
+}
+
+/* “badges” (replace play/app store) */
+.promo-badges {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 18px 0 8px;
+}
+.promo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1.5px solid var(--border-color);
+  color: var(--primary-dark-blue);
+  font-weight: 700;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.promo-badge:hover {
+  transform: translateY(-1px);
+  border-color: rgba(29,23,87,.3);
+  box-shadow: 0 10px 22px rgba(0,0,0,.06);
+}
+.promo-badge.alt {
+  background: linear-gradient(135deg, rgba(242,169,0,.12), #fff);
+  border-color: rgba(242,169,0,.45);
+}
+
+/* footnote line */
+.promo-footnote {
+  margin-top: 12px;
+  font-size: .85rem;
+  color: var(--text-dark-light);
+}
+
+@media (max-width: 768px) {
+  .floating-bubble { display: none; }
+}
+
+
 
 /* Left Section: Text Content */
 .landing-page-text-content {
@@ -215,7 +342,7 @@
 /* Yellow "madoadoa" decorative image */
 .global-hero-decor {
   position: absolute;
-  top: 15%; /* Adjust as needed */
+  top: -2%; /* Adjust as needed */
   right: 10%; /* Adjust as needed */
   width: 52%; /* Adjust size as needed */
   height: auto;

@@ -113,33 +113,37 @@ const Landing = () => {
     <section className="landing-page-section">
       <div className="landing-page-content-container">
         {/* Left Section: Text Content */}
-        <div className="landing-page-text-content">
-          <h1 className="landing-page-heading">
-            Elevate Your Brand with Digital Excellence
-          </h1>
-          <p className="landing-page-description">
-            At Adsonic Digital Agency, we craft innovative strategies to boost
-            your online presence, drive engagement, and achieve measurable
-            growth for your business.
-          </p>
+        {/* Left Section: Promo Card (LOOP-style) */}
+<div className="promo-card">
+  <p className="promo-eyebrow">It’s fast, it’s strategic, it’s</p>
 
-          <div className="landing-page-buttons-group">
-            <div className="button-group-item">
-            
-              <Link to="/services" className="button primary-button">
-                Explore Services
-                <FaArrowRightLong />
-              </Link>
-            </div>
+  <h1 className="promo-heading">
+    <span>Digital</span> Excellence
+  </h1>
 
-            <div className="button-group-item">
-              <Link to="/partnerships" className="button secondary-button">
-                Get Started
-            <FaArrowRightLong />
-              </Link>
-            </div>
-          </div>
-        </div>
+  <p className="promo-sub">
+    Launch campaigns that convert. We design, build, and scale your brand’s
+    online presence & measurable growth without the guesswork.
+  </p>
+
+  <Link to="/services" className="promo-cta">
+    Start your growth plan <FaArrowRightLong />
+  </Link>
+
+  <div className="promo-badges">
+    <Link to="/portfolio" className="promo-badge">
+      See our work
+    </Link>
+    <Link to="/contact" className="promo-badge alt">
+      Book a free consult
+    </Link>
+  </div>
+
+  <p className="promo-footnote">
+    Trusted by SMEs & startups. Transparent pricing. Results you can track.
+  </p>
+</div>
+
 
         {/* Video Player Element (for small screens, it will appear here) */}
         <div className="video-player-container">

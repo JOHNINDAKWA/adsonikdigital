@@ -7,6 +7,7 @@ import Footer from './Components/Footer/Footer';
 import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import ScrollToTop from './Components/ScrollToTop';
+import Portfolio from './Pages/Portfolio/Portfolio';
 
 
 const ServicesPage = () => (
@@ -34,7 +35,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<ServicesPage />} />
-            <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<div className="page-content error-404">You are lost, My friend!!</div>} />
