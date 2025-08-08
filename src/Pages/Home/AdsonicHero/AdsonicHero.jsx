@@ -8,47 +8,47 @@ import Testimonial1 from "../../../assets/images/testimonial1.jpg";
 import Testimonial2 from "../../../assets/images/testimonial2.jpg";
 import Testimonial3 from "../../../assets/images/testimonial3.jpg";
 import Testimonial4 from "../../../assets/images/testimonial4.jpg";
-import Testimonial5 from "../../../assets/images/testimonial5.jpg";
+import Testimonial5 from "../../../assets/images/testimonial3.jpg";
 
 const testimonials = [
   {
     image: Testimonial1,
-    name: "Alfred M.",
+    name: "Alfred Mahanda.",
     title: "Founder, Retail Brand",
     feedback:
       "Adsonic completely revamped our digital marketing strategy, delivering measurable growth in both traffic and conversions. Their team is proactive, creative, and always focused on delivering exceptional results for our business.",
   },
   {
     image: Testimonial2,
-    name: "Erica G.",
+    name: "Erica Kinuthia.",
     title: "CEO, HealthTech Firm",
     feedback:
       "Working with Adsonic has been a game-changer. Their targeted ad campaigns and SEO strategies helped us connect with the right audience, boosting our online presence significantly within just a few months.",
   },
   {
     image: Testimonial3,
-    name: "Debbie A.",
+    name: "Debbie Akello.",
     title: "Marketing Lead, Finance Sector",
     feedback:
       "Adsonic's team doesn’t just run ads; they build data-driven campaigns that generate real business growth. Their dedication and expertise have made a huge impact on our digital visibility and lead generation.",
   },
   {
     image: Testimonial4,
-    name: "Michael S.",
+    name: "Michael Shiundu.",
     title: "Co-founder, EduTech",
     feedback:
       "Our brand's visibility and engagement soared after partnering with Adsonic. Their team crafted brilliant content strategies and delivered designs that resonated perfectly with our core audience.",
   },
   {
     image: Testimonial5,
-    name: "John A.",
+    name: "Justus Wabuko.",
     title: "Marketing Manager, AUF Tech",
     feedback:
       "The Adsonic team has been instrumental in driving our online growth. From SEO optimization to high-performing ad creatives, they consistently deliver results that exceed expectations.",
   },
   {
     image: Testimonial3,
-    name: "Wanjiru K.",
+    name: "Wanjiru Shamim.",
     title: "Co-founder, Startup Incubator",
     feedback:
       "Adsonic is not just an agency; they are a true partner in growth. Their strategic approach to marketing and attention to detail helped us achieve remarkable results within a short period.",

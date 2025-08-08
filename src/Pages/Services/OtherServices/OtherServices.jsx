@@ -11,12 +11,12 @@ import videoImg from "../../../assets/images/services/videography.jpg";
 import brandImg from "../../../assets/images/services/logo-design.jpg";
 
 const ALL_SERVICES = [
-  { key: "webdev", title: "Web & App Development", image: webImg, link: "/services/webdev" },
+  { key: "webdev", title: "Web & App Development", image: webImg, link: "/services/web-&-app-development" },
   { key: "seo", title: "SEO", image: seoImg, link: "/services/seo" },
-  { key: "digitalmarketing", title: "Digital Marketing", image: marketingImg, link: "/services/digitalmarketing" },
+  { key: "digitalmarketing", title: "Digital Marketing", image: marketingImg, link: "/services/digital-marketing" },
   { key: "photography", title: "Photography", image: photoImg, link: "/services/photography" },
   { key: "videography", title: "Videography", image: videoImg, link: "/services/videography" },
-  { key: "branding", title: "Branding & Design", image: brandImg, link: "/services/branding" },
+  { key: "branding", title: "Branding & Design", image: brandImg, link: "/services/branding-&-design" },
 ];
 
 const OtherServices = ({ excludeKey }) => {

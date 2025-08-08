@@ -12,9 +12,9 @@ const data = [
     content: (
       <div className="content-inner">
         <h3>Get in Touch</h3>
-        <p>Support: +254702207999</p>
-        <p>Admin: +254702207999</p>
-        <p>WhatsApp: +254702207999</p>
+        <p>Call/Whatsapp: +254 11642176</p>
+        <p>Call/Whatsapp: +254 716 597073</p>
+        <p>WhatsApp: +18622402737</p>
       </div>
     )
   },
