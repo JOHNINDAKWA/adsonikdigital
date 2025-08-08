@@ -129,7 +129,7 @@ const WEBSITE_PROJECTS = [
   {
     id: "john",
     title: "John’s Personal Site",
-    description: "Personal brand site with blog and portfolio highlights.",
+    description: "Personal brand site with blog and portfolio highlights. Employers love it!",
     thumbnail: thumbJohn,
     video: videoJohn,
     liveUrl: "https://johhnindakwa.vercel.app/",

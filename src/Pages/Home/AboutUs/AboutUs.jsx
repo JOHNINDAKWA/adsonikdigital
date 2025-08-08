@@ -2,6 +2,79 @@ import React from "react";
 import "./AboutUs.css";
 import Video from "../../../assets/images/Placeholder Video.mp4";
 
+import Marquee from "react-fast-marquee";
+
+// ⚠️ Update these imports to your actual logo paths
+import logoFastech from "../../../assets/images/Partners/partner1.jpg";
+import logoItconsult from "../../../assets/images/Partners/partner2.png";
+import logoJohn from "../../../assets/images/Partners/partner3.jpg";
+import logoMaggies from "../../../assets/images/Partners/partner4.jpg";
+import logoPhotography from "../../../assets/images/Partners/partner5.jpg";
+import logoRealEstate from "../../../assets/images/Partners/partner6.jpg";
+
+
+const PARTNERS = [
+  {
+    name: "Fastech Internet",
+    logo: logoFastech,
+    blurb: "Regional ISP & connectivity services.",
+  },
+  {
+    name: "IT Consult",
+    logo: logoItconsult,
+    blurb: "Technology consulting & support.",
+  },
+  {
+    name: "John Personal",
+    logo: logoJohn,
+    blurb: "Personal brand & content hub.",
+  },
+  {
+    name: "Maggie’s Spa",
+    logo: logoMaggies,
+    blurb: "Wellness & beauty spa services.",
+  },
+  {
+    name: "Photo Studio",
+    logo: logoPhotography,
+    blurb: "Commercial photography & creative.",
+  },
+  {
+    name: "Real Estate Pro",
+    logo: logoRealEstate,
+    blurb: "Property listings & advisory.",
+  },
+];
+
+const CLIENTS = [
+  {
+    name: "Fastech Internet",
+    logo: logoFastech,
+    blurb: "Campaigns & performance SEO.",
+  },
+  {
+    name: "IT Consult",
+    logo: logoItconsult,
+    blurb: "Website + lead-gen funnels.",
+  },
+  { name: "John Personal", logo: logoJohn, blurb: "Brand site & newsletter." },
+  {
+    name: "Maggie’s Spa",
+    logo: logoMaggies,
+    blurb: "Bookings & retention flows.",
+  },
+  {
+    name: "Photo Studio",
+    logo: logoPhotography,
+    blurb: "Portfolio & social growth.",
+  },
+  {
+    name: "Real Estate Pro",
+    logo: logoRealEstate,
+    blurb: "Listings + paid acquisition.",
+  },
+];
+
 const AboutUs = () => {
   return (
     <section className="about-us-section">
@@ -58,8 +131,74 @@ const AboutUs = () => {
                 <span className="stat-label">Hours of Dedicated Work</span>
               </div>
             </div>
+
+
+             {/* Partners & Clients (inside AboutUs, below stats) */}
+          <div className="about-us-logos">
+            {/* <div className="logos-row">
+              <h3 className="logos-title">Our Partners</h3>
+              <Marquee
+                speed={30}
+                pauseOnHover
+                gradient={false}
+                className="logos-marquee"
+              >
+                <div className="logos-track">
+                  {PARTNERS.map((it) => (
+                    <div
+                      className="logo-card"
+                      key={`p-${it.name}`}
+                      aria-label={it.name}
+                    >
+                      <img src={it.logo} alt={`${it.name} logo`} />
+                      <div className="logo-overlay">
+                        <div className="overlay-content">
+                          <strong>{it.name}</strong>
+                          <span>{it.blurb}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Marquee>
+            </div> */}
+
+            <div className="logos-row">
+              <h3 className="logos-title">Our Clients and Partners</h3>
+              <Marquee
+                speed={30}
+                pauseOnHover
+                gradient={false}
+                direction="right"
+                className="logos-marquee"
+              >
+                <div className="logos-track">
+                  {CLIENTS.map((it) => (
+                    <div
+                      className="logo-card"
+                      key={`c-${it.name}`}
+                      aria-label={it.name}
+                    >
+                      <img src={it.logo} alt={`${it.name} logo`} />
+                      <div className="logo-overlay">
+                        <div className="overlay-content">
+                          <strong>{it.name}</strong>
+                          <span>{it.blurb}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Marquee>
+            </div>
           </div>
+
+          </div>
+
+         
         </div>
+
+        
       </div>
     </section>
   );

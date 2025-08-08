@@ -2,14 +2,16 @@ import React from "react";
 import Masonry from "react-masonry-css";
 import "./AboutIntro.css";
 
-import Img2 from "../../../assets/images/about1.jpg";
-import Img3 from "../../../assets/images/about3.jpg";
-import Img4 from "../../../assets/images/about5.jpg";
+// import Img2 from "../../../assets/images/about1.jpg";
+// import Img3 from "../../../assets/images/about3.jpg";
+// import Img4 from "../../../assets/images/about5.jpg";
 
-/**
- * We want 6 items total, alternating:
- * 1 text, 2 img, 3 text, 4 img, 5 text, 6 img
- */
+
+import Img2 from "../../../assets/images/about3.jpg";
+import Img3 from "../../../assets/images/about6.jpg";
+import Img4 from "../../../assets/images/about1.jpg";
+
+
 const blocks = [
   {
     type: "text",
