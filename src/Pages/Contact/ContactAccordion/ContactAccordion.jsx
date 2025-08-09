@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ContactAccordion.css';
 import bgContacts from '../../../assets/images/wall12.jpg';
+import bgEmail from '../../../assets/images/wall12.jpg';
 import bgLocation from '../../../assets/images/wall13.jpg';
 import bgSocial from '../../../assets/images/wall9.jpg';
 
@@ -18,6 +19,17 @@ const data = [
       </div>
     )
   },
+   {
+    id: 'email',
+    title: 'Email Us',
+    background: bgEmail,
+    content: (
+      <div className="content-inner">
+        <h3>Our Official Email</h3>
+        <p>Email: info@adsonicagency.co.ke</p>
+      </div>
+    )
+  },
   {
     id: 'location',
     title: 'Our Location',
@@ -25,9 +37,7 @@ const data = [
     content: (
       <div className="content-inner">
         <h3>Visit Us</h3>
-        <p>Level 40, Meru 2 Corporate Tower</p>
-        <p>No 3, Jalan Bangsar, KL Nairobi City</p>
-        <p>Kuala Lumpur, 59200, Konza City</p>
+        <p>Ochok Street, Chokaa, Kang'undo Road, Nairobi</p>
       </div>
     )
   },

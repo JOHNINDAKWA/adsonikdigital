@@ -86,12 +86,12 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  123 Digital Ave, Nairobi City, 654321
+                  Ochok Street, Chokaa, Kang'undo Road, Nairobi
                 </a>
               </div>
               <div className="contact-item">
                 <FaEnvelope />
-                <a href="mailto:info@adsonic.co.ke">info@adsonic.co.ke</a>
+                <a href="mailto:info@adsonic.co.ke">info@adsonicagency.co.ke</a>
               </div>
               <div className="contact-item">
                 <FaPhone />
