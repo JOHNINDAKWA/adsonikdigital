@@ -123,7 +123,7 @@ const Landing = () => {
 
   <p className="promo-sub">
     Launch campaigns that convert. Forget the guesswork and the runarounds. 
-    We're your <span>Digital Jua Kali</span>, building solutions that work.
+    We're your <span>Digital Jua Kali</span>, <br /> building solutions that work.
   </p>
 
   <Link to="/services" className="promo-cta">
