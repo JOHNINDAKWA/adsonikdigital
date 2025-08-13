@@ -5,7 +5,7 @@ import FakeCaptcha from './FakeCaptcha/FakeCaptcha';
 import ContactAccordion from './ContactAccordion/ContactAccordion';
 import BridgeSection from './BridgeSection/BridgeSection';
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrbldglw';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xkgzenqy';
 
 const Contact = () => {
   const navigate = useNavigate();
