@@ -91,6 +91,8 @@
   margin: 0 auto 22px;
 }
 
+.promo-sub span { color: var(--accent-orange); }
+
 /* big CTA */
 .promo-cta {
   display: inline-flex;
