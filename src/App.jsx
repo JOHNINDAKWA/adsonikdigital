@@ -15,6 +15,7 @@ import DigitalMarketting from './Pages/Services/DigitalMarketting/DigitalMarkett
 import Photography from './Pages/Services/Photography/Photography';
 import BrandingDesign from './Pages/Services/BrandingDesign/BrandingDesign';
 import Videography from './Pages/Services/Videography/Videography';
+import ContactSuccess from './Pages/Contact/ContactSuccess/ContactSuccess';
 
 
 
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/contact/thank-you" element={<ContactSuccess />} />
             <Route path="*" element={<div className="page-content error-404">You are lost, My friend!!</div>} />
           </Routes>
         </main>

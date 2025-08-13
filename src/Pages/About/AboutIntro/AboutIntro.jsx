@@ -8,7 +8,7 @@ import "./AboutIntro.css";
 
 import Img2 from "../../../assets/images/about3.jpg";
 import Img3 from "../../../assets/images/about6.jpg";
-import Img4 from "../../../assets/images/about1.jpg";
+import Img4 from "../../../assets/images/about2.jpg";
 
 const blocks = [
   {
