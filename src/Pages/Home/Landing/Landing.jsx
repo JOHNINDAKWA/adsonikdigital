@@ -122,8 +122,8 @@ const Landing = () => {
   </h1>
 
   <p className="promo-sub">
-    Launch campaigns that convert. We design, build, and scale your brand’s
-    online presence & measurable growth without the guesswork.
+    Launch campaigns that convert. Forget the guesswork and the runarounds. 
+    We're your Digital Jua Kali, building solutions that work.
   </p>
 
   <Link to="/services" className="promo-cta">
