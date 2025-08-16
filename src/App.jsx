@@ -16,7 +16,7 @@ import Photography from './Pages/Services/Photography/Photography';
 import BrandingDesign from './Pages/Services/BrandingDesign/BrandingDesign';
 import Videography from './Pages/Services/Videography/Videography';
 import ContactSuccess from './Pages/Contact/ContactSuccess/ContactSuccess';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 
 
