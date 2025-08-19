@@ -17,11 +17,19 @@ import BrandingDesign from './Pages/Services/BrandingDesign/BrandingDesign';
 import Videography from './Pages/Services/Videography/Videography';
 import ContactSuccess from './Pages/Contact/ContactSuccess/ContactSuccess';
 import { Analytics } from "@vercel/analytics/react"
+import Chatbot from './Components/Chatbot/Chatbot';
 
 
 
 const App = () => {
+
+  console.log("Gemini Key Check:", import.meta.env.VITE_GEMINI_API_KEY);
   return (
+
+    
+
+
+    
     <Router>
       <Analytics/>
       <ScrollToTop />
@@ -45,6 +53,9 @@ const App = () => {
           </Routes>
         </main>
         <Footer /> 
+        <Chatbot/>
+
+        
       </div>
     </Router>
   );
