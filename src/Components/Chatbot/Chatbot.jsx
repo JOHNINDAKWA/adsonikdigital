@@ -128,11 +128,15 @@ function extractFollowUps(text) {
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: "bot", text: "Hi 👋, I’m your AdsOniC assistant. How can I help today?" },
+    {
+      role: "bot",
+      text: "Hi 👋, I’m your Adsonic assistant. How can I help today?",
+    },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [followUps, setFollowUps] = useState([]); // dynamic follow-up chips
+  const [followUps, setFollowUps] = useState([]); // dynamic follow-up
+  const [showTeaser, setShowTeaser] = useState(false);
 
   const endRef = useRef(null);
   const typerRef = useRef(null);
@@ -148,7 +152,9 @@ const Chatbot = () => {
       }
       const savedOpen = localStorage.getItem(OPEN_KEY);
       if (savedOpen !== null) setIsOpen(savedOpen === "true");
-    } catch(error) { console.error(error)}
+    } catch (error) {
+      console.error(error);
+    }
     return () => {
       if (typerRef.current) clearInterval(typerRef.current);
     };
@@ -157,14 +163,21 @@ const Chatbot = () => {
   /* ---------- Persist ---------- */
   useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-MAX_SAVED)));
-    } catch(error) { console.error(error)}
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(messages.slice(-MAX_SAVED))
+      );
+    } catch (error) {
+      console.error(error);
+    }
   }, [messages]);
 
   useEffect(() => {
     try {
       localStorage.setItem(OPEN_KEY, String(isOpen));
-    } catch(error) { console.error(error)}
+    } catch (error) {
+      console.error(error);
+    }
   }, [isOpen]);
 
   /* ---------- Auto-scroll ---------- */
@@ -173,11 +186,32 @@ const Chatbot = () => {
       endRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages, loading, isOpen, followUps]);
 
+  useEffect(() => {
+    if (isOpen) {
+      setShowTeaser(false);
+      return;
+    }
+    const seen = sessionStorage.getItem("adsonic_teaser_seen");
+    if (seen) return;
+    const t = setTimeout(() => {
+      setShowTeaser(true);
+      sessionStorage.setItem("adsonic_teaser_seen", "1");
+    }, 3500); // show after 3.5s
+    return () => clearTimeout(t);
+  }, [isOpen]);
+
+  // hide teaser on open
+  useEffect(() => {
+    if (isOpen) setShowTeaser(false);
+  }, [isOpen]);
+
   const toggleChat = () => setIsOpen((v) => !v);
 
   const resetChat = () => {
     if (typerRef.current) clearInterval(typerRef.current);
-    setMessages([{ role: "bot", text: "Chat reseted – How can I help today?" }]);
+    setMessages([
+      { role: "bot", text: "Chat reseted – How can I help today?" },
+    ]);
     setFollowUps([]);
     setInput("");
     setLoading(false);
@@ -205,15 +239,14 @@ const Chatbot = () => {
     }, 12);
   };
 
-
   const handleInputChange = (e) => {
-  setInput(e.target.value);
-  if (inputRef.current) {
-    inputRef.current.style.height = "auto";
-    inputRef.current.style.height =
-      Math.min(inputRef.current.scrollHeight, 120) + "px";
-  }
-}
+    setInput(e.target.value);
+    if (inputRef.current) {
+      inputRef.current.style.height = "auto";
+      inputRef.current.style.height =
+        Math.min(inputRef.current.scrollHeight, 120) + "px";
+    }
+  };
   /* ---------- Send ---------- */
   const handleSend = async (presetText) => {
     const text = (presetText ?? input).trim();
@@ -294,13 +327,24 @@ User question: ${text}`,
   return (
     <div className="chatbot-container">
       {/* Floating Toggle Button */}
-      <button
-        className={`chatbot-toggle ${isOpen ? "open" : ""}`}
-        onClick={toggleChat}
-        aria-label={isOpen ? "Close chat" : "Open chat"}
-      >
-        <FiMessageSquare size={24} />
-      </button>
+      <div className="chatbot-fab">
+        <button
+          className={`chatbot-toggle ${isOpen ? "open" : ""}`}
+          onClick={toggleChat}
+          aria-label={isOpen ? "Close chat" : "Open chat"}
+        >
+          <FiMessageSquare size={22} aria-hidden="true" />
+          <span className="fab-sheen" aria-hidden="true" />
+        </button>
+
+        {!isOpen && showTeaser && (
+          <div className="chatbot-teaser" role="status">
+            <span>
+              👋 Need help? <strong>Chat with us</strong>
+            </span>
+          </div>
+        )}
+      </div>
 
       {/* Chat Window */}
       {isOpen && (
@@ -331,12 +375,16 @@ User question: ${text}`,
             {messages.map((msg, i) => (
               <div
                 key={i}
-                className={`chat-message ${msg.role === "user" ? "user" : "bot"}`}
+                className={`chat-message ${
+                  msg.role === "user" ? "user" : "bot"
+                }`}
               >
                 {msg.role === "bot" ? (
                   <div
                     className="msg-content"
-                    dangerouslySetInnerHTML={{ __html: formatMarkdown(msg.text) }}
+                    dangerouslySetInnerHTML={{
+                      __html: formatMarkdown(msg.text),
+                    }}
                   />
                 ) : (
                   <div className="msg-content">{msg.text}</div>
@@ -379,14 +427,14 @@ User question: ${text}`,
           {/* Input */}
           <div className="chatbot-input">
             <textarea
-  ref={inputRef}
-  rows={1}
-  placeholder="Type your message… (Shift+Enter = newline)"
-  value={input}
-  onChange={handleInputChange}
-  onKeyDown={handleKeyDown}
-  disabled={loading}
-/>
+              ref={inputRef}
+              rows={1}
+              placeholder="Type your message… (Shift+Enter = newline)"
+              value={input}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              disabled={loading}
+            />
 
             <button onClick={() => handleSend()} disabled={loading}>
               {loading ? "…" : "Send"}
