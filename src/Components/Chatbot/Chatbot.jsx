@@ -176,7 +176,7 @@ const Chatbot = () => {
 
   const resetChat = () => {
     if (typerRef.current) clearInterval(typerRef.current);
-    setMessages([{ role: "bot", text: "Chat reset ✅ – How can I help today?" }]);
+    setMessages([{ role: "bot", text: "Chat reseted – How can I help today?" }]);
     setFollowUps([]);
     setInput("");
     setLoading(false);
