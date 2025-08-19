@@ -148,7 +148,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 4px;             
-  padding: 4px 8px 0;  
+  padding: 4px 8px;  
   background: #fff;
 }
 
@@ -157,7 +157,7 @@
   background: #fff;
   color: var(--text-dark);
   border-radius: 999px;
-  padding: 3px 7px;     
+  padding: 4px 8px;     
   font-size: 0.76rem;  
   line-height: 1.1;
   cursor: pointer;
@@ -179,7 +179,7 @@
 .chatbot-input {
   display: flex;
   gap: 8px;
-  border-top: 1px solid var(--border-color);
+  /* border-top: 1px solid var(--border-color); */
   padding: 10px;
   background: #fff;
 }
