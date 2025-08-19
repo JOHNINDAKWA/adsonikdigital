@@ -97,7 +97,7 @@ const STARTER_SUGGESTIONS = [
 
 /** Extract FOLLOWUPS from the end of a model reply.
  * Format:  FOLLOWUPS: q1 || q2 || q3
- * Returns {cleanText, followUps[]} with at most TWO shortest, trimmed items.
+ * Returns {cleanText, followUps[]} with the FIRST TWO items (trimmed).
  */
 function extractFollowUps(text) {
   const re = /(?:^|\n)FOLLOWUPS:\s*(.+)\s*$/i;
@@ -115,14 +115,9 @@ function extractFollowUps(text) {
     )
     .filter(Boolean);
 
-  // pick TWO shortest items; cap length to keep chips compact
-  const twoShortest = list
-    .sort((a, b) => a.length - b.length)
-    .filter((s) => s.length <= 55)
-    .slice(0, 2);
-
+  const two = list.slice(0, 2); // keep exactly first two (no length filtering)
   const cleanText = text.replace(re, "").trim();
-  return { cleanText, followUps: twoShortest };
+  return { cleanText, followUps: two };
 }
 
 const Chatbot = () => {
@@ -196,11 +191,10 @@ const Chatbot = () => {
     const t = setTimeout(() => {
       setShowTeaser(true);
       sessionStorage.setItem("adsonic_teaser_seen", "1");
-    }, 3500); // show after 3.5s
+    }, 3500);
     return () => clearTimeout(t);
   }, [isOpen]);
 
-  // hide teaser on open
   useEffect(() => {
     if (isOpen) setShowTeaser(false);
   }, [isOpen]);
@@ -247,6 +241,7 @@ const Chatbot = () => {
         Math.min(inputRef.current.scrollHeight, 120) + "px";
     }
   };
+
   /* ---------- Send ---------- */
   const handleSend = async (presetText) => {
     const text = (presetText ?? input).trim();
@@ -275,9 +270,8 @@ const Chatbot = () => {
                   {
                     text: `You are Adsonic Digital Agency's website assistant.
 Answer concisely, in short paragraphs and bullet points where useful. Bold key labels.
-After your answer, provide up to **2 ultra-short** follow-up questions on ONE line in the exact format:
+After your answer, provide **exactly 2** follow-up questions on ONE line in the exact format:
 FOLLOWUPS: q1 || q2
-(Keep each follow-up ≤ 6 words.)
 
 Company data:
 ${adsonicData}
@@ -407,7 +401,7 @@ User question: ${text}`,
 
           {/* Suggestions:
               - show starter chips only before first user message
-              - show (max 2) follow-up chips after each bot answer */}
+              - show (exactly 2) follow-up chips after each bot answer */}
           <div className="chatbot-suggestions">
             {!hasUserSpoken &&
               STARTER_SUGGESTIONS.map((s, idx) => (

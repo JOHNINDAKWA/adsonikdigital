@@ -163,12 +163,12 @@ Adsonic Digital Agency — Creative & Tech-Driven Agency (Nairobi, Kenya)
 - Ongoing maintenance & redesign services available
 
 🗂 Selected Projects (Live)
-- Fastech Internet — ISP site with coverage + lead capture: https://fastechinternet.co.ke/
-- Real Estate — Listings + maps/filters: https://johnindakwa.github.io/realtorswebsite/
 - Photography Studio — Minimal image-first portfolio: https://madeinuxstudio.com/
 - IT Consult — Consulting site with services/case studies: https://itconsult.africa/
 - Maggie’s Spa — Packages + booking system: https://maggiespregnancyspa.co.ke/
 - John’s Personal Site — Blog & portfolio: https://johhnindakwa.vercel.app/
+- Fastech Internet — ISP site with coverage + lead capture: https://fastechinternet.co.ke/
+- Real Estate — Listings + maps/filters: https://johnindakwa.github.io/realtorswebsite/
 
 🙋 FAQs
 - Do you operate 24/7? Yes, we’re always available—remote-first worldwide delivery.
