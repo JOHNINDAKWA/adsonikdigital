@@ -136,6 +136,7 @@ const Chatbot = () => {
 
   const endRef = useRef(null);
   const typerRef = useRef(null);
+  const inputRef = useRef(null);
 
   /* ---------- Load from localStorage ---------- */
   useEffect(() => {
@@ -204,6 +205,15 @@ const Chatbot = () => {
     }, 12);
   };
 
+
+  const handleInputChange = (e) => {
+  setInput(e.target.value);
+  if (inputRef.current) {
+    inputRef.current.style.height = "auto";
+    inputRef.current.style.height =
+      Math.min(inputRef.current.scrollHeight, 120) + "px";
+  }
+}
   /* ---------- Send ---------- */
   const handleSend = async (presetText) => {
     const text = (presetText ?? input).trim();
@@ -369,13 +379,15 @@ User question: ${text}`,
           {/* Input */}
           <div className="chatbot-input">
             <textarea
-              rows={1}
-              placeholder="Type your message… (Shift+Enter = newline)"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              disabled={loading}
-            />
+  ref={inputRef}
+  rows={1}
+  placeholder="Type your message… (Shift+Enter = newline)"
+  value={input}
+  onChange={handleInputChange}
+  onKeyDown={handleKeyDown}
+  disabled={loading}
+/>
+
             <button onClick={() => handleSend()} disabled={loading}>
               {loading ? "…" : "Send"}
             </button>
