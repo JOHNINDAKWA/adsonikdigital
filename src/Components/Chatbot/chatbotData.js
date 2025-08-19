@@ -46,6 +46,29 @@ Adsonic Digital Agency — Creative & Tech-Driven Agency (Nairobi, Kenya)
    - Event & real estate photography
    - Promotional, explainer, testimonial, animation videos
 
+6. AI Solutions
+   - **Custom Chatbots**
+     - Website assistants (sales, FAQs, support)
+     - WhatsApp & Messenger chatbots
+     - AI-driven customer support integrated with CRMs
+   - **AI for Business Operations**
+     - Workflow automation (lead capture, routing, reporting)
+     - AI-powered analytics dashboards
+     - Intelligent document/data processing
+   - **Generative AI Tools**
+     - Marketing copy & ad creatives
+     - Product descriptions & blog drafting
+     - AI-assisted design concepts
+   - **Integrations**
+     - Google Gemini / OpenAI / other LLMs
+     - API + business system integration (CRMs, ERPs, ticketing)
+     - Voice assistants & IVR automation
+   - **Maintenance & Training**
+     - Continuous model fine-tuning on your business data
+     - Monitoring & improvement of bot accuracy
+     - Staff training for AI adoption
+
+
 📈 AEO (Answer Engine Optimization)
 - Purpose: Optimizes content & structure for AI/answer engines (Google, Perplexity, etc.) so businesses surface as trusted answers.
 - Process:
