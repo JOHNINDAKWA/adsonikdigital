@@ -21,18 +21,39 @@ function formatMarkdown(text) {
       );
 
   const lines = text.split(/\r?\n/);
-  let html = "", inUL = false, inOL = false;
+  let html = "";
+  let inUL = false,
+    inOL = false;
 
-  const closeLists = () => { if (inUL) { html += "</ul>"; inUL = false; } if (inOL) { html += "</ol>"; inOL = false; } };
+  const closeLists = () => {
+    if (inUL) {
+      html += "</ul>";
+      inUL = false;
+    }
+    if (inOL) {
+      html += "</ol>";
+      inOL = false;
+    }
+  };
 
   lines.forEach((raw) => {
     const line = raw.trim();
-    if (!line) { closeLists(); html += "<br/>"; return; }
+    if (!line) {
+      closeLists();
+      html += "<br/>";
+      return;
+    }
 
     const ol = line.match(/^(\d+)\.\s+(.+)/);
     if (ol) {
-      if (inUL) { html += "</ul>"; inUL = false; }
-      if (!inOL) { html += "<ol class='msg-ol'>"; inOL = true; }
+      if (inUL) {
+        html += "</ul>";
+        inUL = false;
+      }
+      if (!inOL) {
+        html += "<ol class='msg-ol'>";
+        inOL = true;
+      }
       const piece = esc(ol[2]).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
       html += `<li>${linkify(piece)}</li>`;
       return;
@@ -40,8 +61,14 @@ function formatMarkdown(text) {
 
     const ul = line.match(/^(-|•)\s+(.+)/);
     if (ul) {
-      if (inOL) { html += "</ol>"; inOL = false; }
-      if (!inUL) { html += "<ul class='msg-ul'>"; inUL = true; }
+      if (inOL) {
+        html += "</ol>";
+        inOL = false;
+      }
+      if (!inUL) {
+        html += "<ul class='msg-ul'>";
+        inUL = true;
+      }
       const piece = esc(ul[2]).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
       html += `<li>${linkify(piece)}</li>`;
       return;
@@ -56,7 +83,7 @@ function formatMarkdown(text) {
   return html;
 }
 
-/* ---------- Helpers ---------- */
+/* ---------- Helpers / Constants ---------- */
 const STORAGE_KEY = "adsonic_chat_messages_v1";
 const OPEN_KEY = "adsonic_chat_isopen_v1";
 const MAX_SAVED = 50;
@@ -69,21 +96,33 @@ const STARTER_SUGGESTIONS = [
 ];
 
 /** Extract FOLLOWUPS from the end of a model reply.
- * Format expected:  FOLLOWUPS: q1 || q2 || q3
- * Returns {cleanText, followUps[]}
+ * Format:  FOLLOWUPS: q1 || q2 || q3
+ * Returns {cleanText, followUps[]} with at most TWO shortest, trimmed items.
  */
 function extractFollowUps(text) {
   const re = /(?:^|\n)FOLLOWUPS:\s*(.+)\s*$/i;
   const m = text.match(re);
   if (!m) return { cleanText: text, followUps: [] };
+
   const raw = m[1] || "";
   const list = raw
     .split("||")
-    .map((s) => s.trim())
-    .filter(Boolean)
-    .slice(0, 4);
+    .map((s) =>
+      s
+        .trim()
+        .replace(/^[—–-•\s]+/, "") // remove leading bullets/dashes
+        .replace(/\s+/g, " ")
+    )
+    .filter(Boolean);
+
+  // pick TWO shortest items; cap length to keep chips compact
+  const twoShortest = list
+    .sort((a, b) => a.length - b.length)
+    .filter((s) => s.length <= 55)
+    .slice(0, 2);
+
   const cleanText = text.replace(re, "").trim();
-  return { cleanText, followUps: list };
+  return { cleanText, followUps: twoShortest };
 }
 
 const Chatbot = () => {
@@ -108,24 +147,29 @@ const Chatbot = () => {
       }
       const savedOpen = localStorage.getItem(OPEN_KEY);
       if (savedOpen !== null) setIsOpen(savedOpen === "true");
-    } catch (error) {console.error(error)}
-    return () => { if (typerRef.current) clearInterval(typerRef.current); };
+    } catch(error) { console.error(error)}
+    return () => {
+      if (typerRef.current) clearInterval(typerRef.current);
+    };
   }, []);
 
   /* ---------- Persist ---------- */
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-MAX_SAVED)));
-     } catch (error) { console.error(error)}
+    } catch(error) { console.error(error)}
   }, [messages]);
 
   useEffect(() => {
-    try { localStorage.setItem(OPEN_KEY, String(isOpen)); } catch (error) { console.error(error)}
+    try {
+      localStorage.setItem(OPEN_KEY, String(isOpen));
+    } catch(error) { console.error(error)}
   }, [isOpen]);
 
   /* ---------- Auto-scroll ---------- */
   useEffect(() => {
-    if (endRef.current) endRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    if (endRef.current)
+      endRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages, loading, isOpen, followUps]);
 
   const toggleChat = () => setIsOpen((v) => !v);
@@ -188,8 +232,9 @@ const Chatbot = () => {
                   {
                     text: `You are Adsonic Digital Agency's website assistant.
 Answer concisely, in short paragraphs and bullet points where useful. Bold key labels.
-After your answer, provide up to 3 short follow-up questions on one line in the exact format:
-FOLLOWUPS: q1 || q2 || q3
+After your answer, provide up to **2 ultra-short** follow-up questions on ONE line in the exact format:
+FOLLOWUPS: q1 || q2
+(Keep each follow-up ≤ 6 words.)
 
 Company data:
 ${adsonicData}
@@ -293,16 +338,18 @@ User question: ${text}`,
             {loading && (
               <div className="chat-message bot">
                 <span className="typing">
-                  <span></span><span></span><span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </span>
               </div>
             )}
             <div ref={endRef} />
           </div>
 
-          {/* Suggestion chips:
+          {/* Suggestions:
               - show starter chips only before first user message
-              - show follow-up chips (from model) after each answer */}
+              - show (max 2) follow-up chips after each bot answer */}
           <div className="chatbot-suggestions">
             {!hasUserSpoken &&
               STARTER_SUGGESTIONS.map((s, idx) => (
