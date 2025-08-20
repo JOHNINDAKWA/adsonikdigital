@@ -254,41 +254,35 @@ const Chatbot = () => {
     setFollowUps([]); // clear old follow-ups until we get new ones
 
     try {
-      const res = await fetch(
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-goog-api-key": import.meta.env.VITE_GEMINI_API_KEY,
-          },
-          body: JSON.stringify({
-            contents: [
-              {
-                role: "user",
-                parts: [
-                  {
-                    text: `You are Adsonic Digital Agency's website assistant.
-Answer concisely, in short paragraphs and bullet points where useful. Bold key labels.
-After your answer, provide **exactly 2** follow-up questions on ONE line in the exact format:
-FOLLOWUPS: q1 || q2
+   // in handleSend (frontend)
+const res = await fetch("/api/chat", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    message: text,
+    context: adsonicData,
+    system: "AdsOniC site bot",
+    temperature: 0.5,
+  }),
+});
 
-Company data:
-${adsonicData}
+// ❗ handle non-OK responses
+if (!res.ok) {
+  const err = await res.json().catch(() => ({}));
+  const msg =
+    res.status === 429
+      ? "We're getting a lot of traffic right now. Please try again in a few seconds."
+      : err?.error || "Service is temporarily unavailable.";
+  setMessages((prev) => [...prev, { role: "bot", text: `⚠️ ${msg}` }]);
+  setLoading(false);
+  return;
+}
 
-User question: ${text}`,
-                  },
-                ],
-              },
-            ],
-          }),
-        }
-      );
+const data = await res.json();
+const raw =
+  data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+  "Sorry, I didn’t get that.";
 
-      const data = await res.json();
-      const raw =
-        data?.candidates?.[0]?.content?.parts?.[0]?.text ||
-        "Sorry, I didn’t get that.";
 
       const { cleanText, followUps: nextFU } = extractFollowUps(raw);
 
