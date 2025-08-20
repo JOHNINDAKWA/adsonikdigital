@@ -22,14 +22,7 @@ import Chatbot from './Components/Chatbot/Chatbot';
 
 
 const App = () => {
-
-  console.log("Gemini Key Check:", import.meta.env.VITE_GEMINI_API_KEY);
   return (
-
-    
-
-
-    
     <Router>
       <Analytics/>
       <ScrollToTop />
