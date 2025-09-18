@@ -11,6 +11,15 @@ import videoFastech from "../../assets/images/videos/fastech.mp4";
 import thumbItconsult from "../../assets/images/videos/itconsult.png";
 import videoItconsult from "../../assets/images/videos/itconsult.mp4";
 
+import thumbGlobalCribs from "../../assets/images/videos/globalcribs.png";
+import videoGlobalCribs from "../../assets/images/videos/globalcibs.mp4";
+
+import thumbCoverly from "../../assets/images/videos/coverly.png";
+import videoCoverly from "../../assets/images/videos/coverly.mp4";
+
+import thumbLoosian from "../../assets/images/videos/loosian.png";
+import videoLoosian from "../../assets/images/videos/loosian.mp4";
+
 import thumbJohn from "../../assets/images/videos/john.png";
 import videoJohn from "../../assets/images/videos/john.mp4";
 
@@ -86,9 +95,9 @@ const ProjectGrid = ({ projects, onOpen }) => {
   );
 };
 
-/** Your website projects */
-const WEBSITE_PROJECTS = [
-      {
+/** Define all projects once */
+const ALL_PROJECTS = {
+  photography: {
     id: "photography",
     title: "Photography Studio",
     description: "Minimal, image-first portfolio with galleries.",
@@ -97,25 +106,26 @@ const WEBSITE_PROJECTS = [
     liveUrl: "https://madeinuxstudio.com/",
     moreUrl: "#",
   },
-  {
-    id: "realestate",
-    title: "Real Estate",
-    description: "Listings with filters, maps, and neighborhood insights.",
-    thumbnail: thumbRealEstate,
-    video: videoRealEstate,
-    liveUrl: "https://johnindakwa.github.io/realtorswebsite/",
+  globalcribs: {
+    id: "globalcribs",
+    title: "Global Cribs",
+    description:
+      "Secure student housing with student, agent, and admin dashboards, complete with escrow payments, safe refunds, and seamless booking flows.",
+    thumbnail: thumbGlobalCribs,
+    video: videoGlobalCribs,
+    liveUrl: "https://globalcribs.org/",
     moreUrl: "#",
   },
-  {
+  fastech: {
     id: "fastech",
     title: "Fastech Internet",
     description: "Modern ISP site with plans, coverage, and lead capture.",
     thumbnail: thumbFastech,
     video: videoFastech,
-    liveUrl: "https://fastechinternet.co.ke/",
+    liveUrl: "https://fastechsolutions.co.ke/",
     moreUrl: "#",
   },
-  {
+  itconsult: {
     id: "itconsult",
     title: "IT Consult",
     description: "Consulting website with service pages and case studies.",
@@ -124,28 +134,57 @@ const WEBSITE_PROJECTS = [
     liveUrl: "https://itconsult.africa/",
     moreUrl: "#",
   },
-  {
-    id: "john",
-    title: "John’s Personal Site",
-    description: "Personal brand site with blog and portfolio highlights. Employers love it!",
-    thumbnail: thumbJohn,
-    video: videoJohn,
-    liveUrl: "https://johhnindakwa.vercel.app/",
-    moreUrl: "#",
-  },
-  {
+  maggies: {
     id: "maggies",
     title: "Maggie’s Pregnancy and Postpartum Spa",
-    description: "Serene pregnancy and postpartum spa site with packages and booking flow, complete with admin dashboard.",
+    description:
+      "Serene spa site with booking flow and a full admin dashboard.",
     thumbnail: thumbMaggies,
     video: videoMaggies,
     liveUrl: "http://maggiespregnancyspa.co.ke/",
     moreUrl: "#",
   },
+  coverly: {
+    id: "coverly",
+    title: "Coverly",
+    description: "Generate resume and cover letter online using AI.",
+    thumbnail: thumbCoverly,
+    video: videoCoverly,
+    liveUrl: "https://coverly-xi.vercel.app/",
+    moreUrl: "#",
+  },
+  loosian: {
+    id: "loosian",
+    title: "Loosian Grocers & Exporters",
+    description:
+      "Pretty website showing Loosian Kenya’s trusted source for certified produce.",
+    thumbnail: thumbLoosian,
+    video: videoLoosian,
+    liveUrl: "https://loosian-exports.vercel.app/",
+    moreUrl: "#",
+  },
+  john: {
+    id: "john",
+    title: "John’s Personal Site",
+    description:
+      "Personal brand site with blog and portfolio highlights. Employers love it!",
+    thumbnail: thumbJohn,
+    video: videoJohn,
+    liveUrl: "https://johhnindakwa.vercel.app/",
+    moreUrl: "#",
+  },
+  realestate: {
+    id: "realestate",
+    title: "Real Estate",
+    description: "Listings with filters, maps, and neighborhood insights.",
+    thumbnail: thumbRealEstate,
+    video: videoRealEstate,
+    liveUrl: "https://johnindakwa.github.io/realtorswebsite/",
+    moreUrl: "#",
+  },
+};
 
-];
-
-/** Sidebar categories (8 items) */
+/** Sidebar categories */
 const CATEGORIES = [
   { key: "websites", label: "Website Showcase" },
   { key: "web-applications", label: "Web Applications" },
@@ -158,16 +197,31 @@ const CATEGORIES = [
   { key: "dashboards", label: "Dashboards & Admin" },
 ];
 
-/** Map projects per category (fill more later) */
+/** Map projects per category */
 const PROJECTS_BY_CATEGORY = {
-  websites: WEBSITE_PROJECTS,
-  applications: [], // add when ready
+  websites: [
+    ALL_PROJECTS.photography,
+    ALL_PROJECTS.globalcribs,
+    ALL_PROJECTS.fastech,
+    ALL_PROJECTS.itconsult,
+    ALL_PROJECTS.maggies,
+    ALL_PROJECTS.coverly,
+    ALL_PROJECTS.loosian,
+    ALL_PROJECTS.john,
+    ALL_PROJECTS.realestate,
+  ],
+  "web-applications": [ALL_PROJECTS.globalcribs, ALL_PROJECTS.coverly],
+  "mobile-applications": [], // add later
   logos: [],
   cards: [],
   posters: [],
   social: [],
   banners: [],
-  dashboards: [],
+  dashboards: [
+    ALL_PROJECTS.globalcribs,
+    ALL_PROJECTS.coverly,
+    ALL_PROJECTS.maggies,
+  ],
 };
 
 const Portfolio = () => {
@@ -199,9 +253,6 @@ const Portfolio = () => {
         </header>
 
         <div className="portfolio-two-col">
-          {/* Sidebar menu styled like your reference */}
-
-          {/* Content area */}
           <main className="portfolio-content">
             <ProjectGrid
               projects={PROJECTS_BY_CATEGORY[activeCat]}
@@ -211,8 +262,6 @@ const Portfolio = () => {
 
           <aside className="side-menu glass">
             <h3 className="side-title">Project Categories</h3>
-
-            {/* Toggle only visible on small screens */}
             <button
               className="side-toggle"
               onClick={() => setMenuOpen((v) => !v)}
@@ -235,7 +284,7 @@ const Portfolio = () => {
                     }`}
                     onClick={() => {
                       setActiveCat(c.key);
-                      setMenuOpen(false); // auto-close after choosing on mobile
+                      setMenuOpen(false);
                     }}
                   >
                     <span>{c.label}</span>
@@ -248,7 +297,6 @@ const Portfolio = () => {
         </div>
       </div>
 
-      {/* Lightbox */}
       {active && (
         <div className="lightbox" onClick={closeLightbox}>
           <div
@@ -266,10 +314,8 @@ const Portfolio = () => {
                 key={autoPlayKey}
                 src={active.video}
                 autoPlay
-                muted
                 loop
                 playsInline
-                // controls
               />
             </div>
 
@@ -285,14 +331,6 @@ const Portfolio = () => {
                 >
                   See Live Project
                 </a>
-                {/* <a
-                  className="btn btn-ghost"
-                  href={active.moreUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View More
-                </a> */}
               </div>
             </div>
           </div>
