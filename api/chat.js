@@ -61,7 +61,7 @@ User question: ${message}`
     if (!rsp.ok) {
       const errText = await rsp.text().catch(() => "");
       return res.status(rsp.status).json({
-        error: "Gemini upstream error",
+        error: "Woah! Lots of people are chatting right now. Please wait 30 seconds and try again or contact 0702207999. I'm excited to help! ",
         status: rsp.status,
         detail: errText.slice(0, 1000),
       });

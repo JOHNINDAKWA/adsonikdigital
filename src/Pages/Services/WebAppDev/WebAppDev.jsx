@@ -9,6 +9,7 @@ import ecommerceImg from "../../../assets/images/ecommerce.jpg";
 import customAppImg from "../../../assets/images/mobile.jpg";
 import databaseImg from "../../../assets/images/database.jpg";
 import cmsImg from "../../../assets/images/cms.jpg";
+import neuralImg from "../../../assets/images/neural.jpg";
 import OtherServices from "../OtherServices/OtherServices";
 
 const CAPABILITIES = [
@@ -63,6 +64,19 @@ const CAPABILITIES = [
       "Authoring UX & roles/permissions",
     ],
   },
+  {
+  title: "AI-Powered Solutions & Automation", 
+  body: "Integrate powerful Artificial Intelligence and Machine Learning models to automate processes, personalize user experiences, and gain deep business insights. We build custom AI features and fully integrated AI-first systems.",
+  image: neuralImg,
+  bullets: [
+    "AI Chatbots & Conversational UIs (e.g., custom GPT-powered systems)",
+    "ML for Predictive Analytics and Recommendation Engines",
+    "Automated Content Generation (AI-assisted CMS workflows)",
+    "Integration with major AI APIs (OpenAI, Google, etc.)",
+  ],
+  id: "ai-solutions", // Add an ID for easy linking/navigation
+}
+
 ];
 
 const WebAppDev = () => {

@@ -14,69 +14,81 @@ import OtherServices from "../OtherServices/OtherServices";
 
 const CAPABILITIES = [
   {
-    title: "Marketing & Sales Automation",
+    // Simplified Title: Automation -> Auto-Pilot
+    title: "Marketing on Auto-Pilot (Automation)",
+    // Simplified Body with <strong> tags
     body:
-      "Build always-on pipelines that nurture leads, trigger follow-ups, and sync data. Automations reduce manual work and lift conversions across the funnel.",
+      "We set up smart systems that automatically <strong>follow up with your customers</strong> and handle simple tasks. This reduces your manual work and makes sure no potential sale is missed.",
     image: automationImg,
     bullets: [
-      "Lead scoring & lifecycle journeys",
-      "CRM workflows & webhooks",
-      "Playbooks for handoffs & SLAs",
+      "Automatically send follow-up messages",
+      "Organize customer contacts (CRM help)",
+      "Set rules for faster response times",
     ],
   },
   {
-    title: "Pay-Per-Click Advertising (PPC)",
+    // Simplified Title: PPC -> Paid Ads
+    title: "Paid Advertising (Google & Social Ads)",
+    // Simplified Body with <strong> tags
     body:
-      "High-intent campaigns tuned for ROI. From keyword strategy to creative testing and bid automation, we scale spend only when it’s profitable.",
+      "We run effective campaigns that show your ads only to people ready to buy. We constantly check the results to make sure your money is bringing in <strong>more profit</strong> than you spend.",
     image: ppcImg,
     bullets: [
-      "Google & YouTube Ads (Search/PMAX)",
-      "Meta/LinkedIn audience testing",
-      "Creative & landing page experiments",
+      "Ads on Google and YouTube",
+      "Ads on Facebook, Instagram, and LinkedIn",
+      "Testing different pictures and messages (creatives)",
     ],
   },
   {
+    // Simplified Title: Same, but simpler description
     title: "Social Media Marketing",
+    // Simplified Body with <strong> tags
     body:
-      "Build community and demand with platform-native content. We plan calendars, produce assets, and report what actually moves the numbers.",
+      "We help you build a strong online community and create posts that people love. We plan what to post, create the content, and report on what actually <strong>grows your business</strong>.",
     image: socialImg,
     bullets: [
-      "Channel strategy & content pillars",
-      "Short-form video & carousels",
-      "Engagement & growth systems",
+      "Strategy for platforms (e.g., Facebook, TikTok)",
+      "Making short videos and nice graphics",
+      "Systems to increase likes and followers",
     ],
   },
   {
-    title: "Email Marketing & Lifecycle",
+    // Simplified Title: Email -> Newsletters & Deals
+    title: "Email Newsletters and Deals",
+    // Simplified Body with <strong> tags
     body:
-      "Send the right message at the right time. Segmentation, automation, and copy frameworks that increase retention and LTV.",
+      "We send the <strong>right emails to the right people</strong> at the best time. This keeps your customers happy, encourages them to buy again, and makes sure they remember your brand.",
     image: emailImg,
     bullets: [
-      "Welcome, nurture & win-back flows",
-      "Segmentation & deliverability",
-      "Campaign calendars & templates",
+      "Welcome, follow-up, and 'come back' email campaigns",
+      "Sending deals to specific customer groups",
+      "Creating professional email templates",
     ],
   },
   {
-    title: "Brand Strategy & Conversion Rate Optimization",
+    // Simplified Title: Brand Strategy -> Making Your Business Clear
+    title: "Making Your Business Stand Out (Brand Strategy)",
+    // Simplified Body with <strong> tags
     body:
-      "Clarify your story and remove friction in the journey. We align messaging, design, and UX so more visitors become customers.",
+      "We clarify exactly what makes your business special and fix anything confusing on your website. This ensures your message is <strong>clear</strong> and makes it <strong>easier for visitors to become customers</strong>.",
     image: brandImg,
     bullets: [
-      "Positioning & messaging systems",
-      "UX audits & hypothesis backlog",
-      "A/B testing & analytics feedback",
+      "Finding your core business message",
+      "Checking and fixing how easy your website is to use",
+      "Testing messages to see what works best",
     ],
   },
   {
-    title: "CRO Programs at Scale",
+    // Simplified Title: CRO -> Getting More Sales from Visitors
+    title: "Getting More Sales from Your Website Visitors",
+    // Simplified Body with <strong> tags
     body:
-      "Continuous experimentation across ads, landing pages, and funnels. Instrumentation makes wins repeatable...not lucky.",
+      "We are always running small tests on your website and ads to find the best way to get a sale. We turn these small wins into a system that guarantees your <strong>sales keep growing</strong>.",
     image: croImg,
     bullets: [
-      "North-star metrics & guardrails",
-      "Experiment design & velocity",
-      "Dashboarding & weekly reviews",
+      "Clear goals for sales growth",
+      "Designing and running website experiments",
+      "Simple reports on what we improved each week",
     ],
   },
 ];
@@ -85,45 +97,44 @@ const DigitalMarketting = () => {
   return (
     <>
     <section className="dm-page">
-      {/* ===== HERO ===== */}
+      {/* ===== HERO (Simplified Content with <strong> tags) ===== */}
       <div className="dm-hero" style={{ "--heroBg": `url(${heroBg})` }}>
         <div className="container dm-hero-inner">
           <div className="dm-hero-copy">
             <h1>
-              Digital Marketing that <span>Acquires</span> & Retains
+              Digital Marketing that <span>Finds</span> & Keeps Your <span>Customers</span>
             </h1>
             <p>
-              Full-funnel growth—automation, PPC, social, email, brand, and CRO.
-              Creative meets data so every channel contributes to revenue.
+              We manage all your online growth—from <strong>social media</strong> and <strong>Google Ads</strong> to <strong>email campaigns</strong> and <strong>website improvements</strong>. We use data to make sure every activity brings in more revenue.
             </p>
             <div className="dm-divider" />
           </div>
 
           <div className="dm-hero-card">
             <div className="card-group">
-              <h4>Top Focus</h4>
+              <h4>Our Main Focus</h4>
               <div className="bar">
                 <span className="bar-fill" style={{ "--fill": "54%" }} />
               </div>
               <div className="bar-meta">
-                <strong>54%</strong> Paid + Lifecycle Programs
+                <strong>54%</strong> Paid Ads + Customer Emails
               </div>
             </div>
 
             <div className="card-group">
-              <h4>Top Outcome</h4>
+              <h4>Top Result</h4>
               <div className="bar">
                 <span className="bar-fill" style={{ "--fill": "71%" }} />
               </div>
               <div className="bar-meta">
-                <strong>71%</strong> Lift in MQL→SQL Rate
+                <strong>71%</strong> Better at turning potential buyers into real buyers
               </div>
             </div>
 
             <div className="card-cta">
               <div className="stat">
                 <div className="n">+38%</div>
-                <div className="kicker">Avg. ROAS Improvement</div>
+                <div className="kicker">Avg. Profit from Ads Improved</div>
               </div>
               <Link to="/contact" className="btn-cta">Plan My Growth</Link>
             </div>
@@ -131,7 +142,7 @@ const DigitalMarketting = () => {
         </div>
       </div>
 
-      {/* ===== CAPABILITIES ===== */}
+      {/* ===== CAPABILITIES (Using Corrected Array) ===== */}
       <div className="container dm-capabilities">
         {CAPABILITIES.map((c, i) => (
           <article key={c.title} className={`dm-row ${i % 2 === 1 ? "reverse" : ""}`}>
@@ -140,7 +151,8 @@ const DigitalMarketting = () => {
             </div>
             <div className="dm-copy">
               <h3>{c.title}</h3>
-              <p>{c.body}</p>
+              {/* Note: The 'body' property must be rendered safely. In JSX, embedding HTML is secure by default if coming from a variable like 'c.body'. */}
+              <p dangerouslySetInnerHTML={{ __html: c.body }} /> 
               {c.bullets?.length ? (
                 <ul className="dm-bullets">
                   {c.bullets.map((b) => (
@@ -149,7 +161,7 @@ const DigitalMarketting = () => {
                 </ul>
               ) : null}
               <Link className="dm-link" to="/contact">
-                Let’s map your funnel →
+                Let’s start growing →
               </Link>
             </div>
           </article>

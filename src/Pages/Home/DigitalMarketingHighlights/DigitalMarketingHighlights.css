@@ -121,7 +121,7 @@
   max-width: 540px;
   border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05); */
 }
 
 .btn-service-page {

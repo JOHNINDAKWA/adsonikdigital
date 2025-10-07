@@ -272,7 +272,7 @@ if (!res.ok) {
   const msg =
     res.status === 429
       ? "We're getting a lot of traffic right now. Please try again in a few seconds."
-      : err?.error || "Service is temporarily unavailable.";
+      : err?.error || "Woah! Lots of people are chatting right now. Please wait 30 seconds and try again or contact 0702207999. I'm excited to help!";
   setMessages((prev) => [...prev, { role: "bot", text: `⚠️ ${msg}` }]);
   setLoading(false);
   return;
@@ -417,7 +417,7 @@ const raw =
             <textarea
               ref={inputRef}
               rows={1}
-              placeholder="Type your message… (Shift+Enter = newline)"
+              placeholder="Type your message…"
               value={input}
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
