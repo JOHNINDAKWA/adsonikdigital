@@ -64,7 +64,7 @@ const AboutIntro = () => {
         {blocks.map((block, i) =>
           block.type === "text" ? (
             <div className="about-intro-text-card" key={`t-${i}`}>
-              <h2>{block.title}</h2>
+              <h2 className="about-h2">{block.title}</h2>
               <p>{block.body}</p>
             </div>
           ) : (
