@@ -141,7 +141,7 @@ const ALL_PROJECTS = {
       "Serene spa site with booking flow and a full admin dashboard.",
     thumbnail: thumbMaggies,
     video: videoMaggies,
-    liveUrl: "http://maggiespregnancyspa.co.ke/",
+    liveUrl: "https://maggiespregnancyspa.co.ke/",
     moreUrl: "#",
   },
   coverly: {
