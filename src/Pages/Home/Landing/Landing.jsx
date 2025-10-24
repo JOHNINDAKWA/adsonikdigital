@@ -122,8 +122,7 @@ const Landing = () => {
   </h1>
 
   <p className="promo-sub">
-    Launch campaigns that convert. Forget the guesswork and the runarounds. 
-    We're your <span>Digital Jua Kali</span>, <br /> building solutions that work.
+    Launch your online success with comprehensive <span>Web & Application Development</span>, strategic <span>SEO</span>, and data-driven <span>Digital Marketing</span>, <span>Graphic Design</span> and more.
   </p>
 
   <Link to="/services" className="promo-cta">
@@ -238,19 +237,19 @@ const Landing = () => {
             <span className="bubble-icon">
               <FaChartLine />
             </span>{" "}
-            Proven Results
+            Websites
           </div>
           <div className="floating-bubble bubble-innovative-solutions">
             <span className="bubble-icon">
               <FaLightbulb />
             </span>{" "}
-            Innovative Solutions
+            Mobile Applications
           </div>
           <div className="floating-bubble bubble-award-winning">
             <span className="bubble-icon">
               <FaAward />
             </span>{" "}
-            Award Winning
+            Digital Marketing
           </div>
 
           {/* Video Player Element for large screens */}
