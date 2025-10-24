@@ -122,7 +122,7 @@ const Landing = () => {
   </h1>
 
   <p className="promo-sub">
-    Launch your online success with comprehensive <span>Web & Application Development</span>, strategic <span>SEO</span>, and data-driven <span>Digital Marketing</span>, <span>Graphic Design</span> and more.
+    Launch your online success with comprehensive <span>Web & Application Development</span>, strategic <span>SEO</span>,<span>Digital Marketing</span>, <span>Graphic Design</span> and more.
   </p>
 
   <Link to="/services" className="promo-cta">
