@@ -32,6 +32,9 @@ import videoPhotography from "../../assets/images/videos/photography.mp4";
 import thumbRealEstate from "../../assets/images/videos/real-estate.png";
 import videoRealEstate from "../../assets/images/videos/real-estate.mp4";
 
+import thumbJokaJok from "../../assets/images/videos/jokajok.png";
+import videoJokaJok from "../../assets/images/videos/jokajok.mp4";
+
 /** Reusable grid */
 const ProjectGrid = ({ projects, onOpen }) => {
   if (!projects?.length) {
@@ -125,6 +128,15 @@ const ALL_PROJECTS = {
     liveUrl: "https://fastechsolutions.co.ke/",
     moreUrl: "#",
   },
+    jokajok: {
+    id: "jokajok",
+    title: "Jokajok African Luxury",
+    description: "Ecommerce site for African-inspired fashion and accessories.",
+    thumbnail: thumbJokaJok,
+    video: videoJokaJok,
+    liveUrl: "https://jokajok.com/",
+    moreUrl: "#",
+  },
   itconsult: {
     id: "itconsult",
     title: "IT Consult",
@@ -208,9 +220,10 @@ const PROJECTS_BY_CATEGORY = {
     ALL_PROJECTS.coverly,
     ALL_PROJECTS.loosian,
     ALL_PROJECTS.john,
+    ALL_PROJECTS.jokajok,
     ALL_PROJECTS.realestate,
   ],
-  "web-applications": [ALL_PROJECTS.globalcribs, ALL_PROJECTS.coverly],
+  "web-applications": [ALL_PROJECTS.globalcribs, ALL_PROJECTS.coverly, ALL_PROJECTS.jokajok],
   "mobile-applications": [], // add later
   logos: [],
   cards: [],
@@ -221,6 +234,7 @@ const PROJECTS_BY_CATEGORY = {
     ALL_PROJECTS.globalcribs,
     ALL_PROJECTS.coverly,
     ALL_PROJECTS.maggies,
+    ALL_PROJECTS.jokajok,
   ],
 };
 
